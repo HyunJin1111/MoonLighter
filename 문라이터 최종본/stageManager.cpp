@@ -45,5 +45,5 @@ void stageManager::sceneSet()
 	SCENEMANAGER->addScene("deongeonChoice", new deongeonChoice);
 	SCENEMANAGER->addScene("dungeon", new dungeon);
 
-	SCENEMANAGER->changeScene("village");
+	SCENEMANAGER->changeScene("intro");
 }

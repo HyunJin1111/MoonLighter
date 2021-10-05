@@ -11,16 +11,16 @@ boss::~boss()
 
 HRESULT boss::init(float x, float y)
 {
-	IMAGEMANAGER->addFrameDImage("보스_idle", L"보스/boss_idle.png", 4176, 295, 16, 1);
-	IMAGEMANAGER->addFrameDImage("보스_attack1", L"보스/boss_launch.png", 12831, 295, 39, 1);
-	IMAGEMANAGER->addFrameDImage("보스_attack1_re", L"보스/boss_launch2.png", 7200, 400, 24, 1);
-	IMAGEMANAGER->addFrameDImage("보스_arm", L"보스/boss_punch.png", 810, 98, 9, 1);
-	IMAGEMANAGER->addFrameDImage("보스_attack2", L"보스/boss_attack2.png", 12900, 295, 43, 1);
-	IMAGEMANAGER->addFrameDImage("보스_die", L"보스/boss_die.png", 12423, 800, 41, 2);
+	IMAGEMANAGER->addFrameDImage("boss_idle", L"Boss/boss_idle.png", 4176, 295, 16, 1);
+	IMAGEMANAGER->addFrameDImage("boss_launch", L"Boss/boss_launch.png", 12831, 295, 39, 1);
+	IMAGEMANAGER->addFrameDImage("boss_launch2", L"Boss/boss_launch2.png", 7200, 400, 24, 1);
+	IMAGEMANAGER->addFrameDImage("boss_punch", L"Boss/boss_punch.png", 810, 98, 9, 1);
+	IMAGEMANAGER->addFrameDImage("boss_attack2", L"Boss/boss_attack2.png", 12900, 295, 43, 1);
+	IMAGEMANAGER->addFrameDImage("boss_die", L"Boss/boss_die.png", 12423, 800, 41, 2);
 
 
-	IMAGEMANAGER->addDImage("보스체력왼쪽", L"UI/체력바_링.png", 31 / 5, 54 / 5);
-	IMAGEMANAGER->addDImage("보스체력오른쪽", L"UI/체력바_링2.png", 31 / 5, 54 / 5);
+	IMAGEMANAGER->addDImage("Heart_Ring", L"UI/Heart_Ring.png", 31 / 5, 54 / 5);
+	IMAGEMANAGER->addDImage("Heart_Ring2", L"UI/Heart_Ring2.png", 31 / 5, 54 / 5);
 
 	_bossState = new bossIdle();
 	_bossState->enter(this);
@@ -37,7 +37,7 @@ HRESULT boss::init(float x, float y)
 	_boss.isAttack1 = false;
 	_boss.enemyHitCount = 0;
 	//보스 팔
-	_bossArm.img = IMAGEMANAGER->findDImage("보스_arm");
+	_bossArm.img = IMAGEMANAGER->findDImage("boss_punch");
 	_bossArm.x = x;
 	_bossArm.y = y - 400;
 	_bossArm.rc = RectMakeCenter(_bossArm.x, _bossArm.y, _bossArm.img->getFrameWidth(), _bossArm.img->getFrameHeight());
@@ -48,8 +48,8 @@ HRESULT boss::init(float x, float y)
 
 	_hpBar = new enemyProgressBar;
 	_hpBar->init(5000, 5000, 400, 10, 2);
-	_hpLeft = IMAGEMANAGER->findDImage("보스체력왼쪽");
-	_hpRight = IMAGEMANAGER->findDImage("보스체력오른쪽");
+	_hpLeft = IMAGEMANAGER->findDImage("Heart_Ring");
+	_hpRight = IMAGEMANAGER->findDImage("Heart_Ring2");
 	return S_OK;
 }
 

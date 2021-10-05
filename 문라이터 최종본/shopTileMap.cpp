@@ -16,15 +16,15 @@ HRESULT shopTileMap::init()
 	CAMERAMANAGER->setZoom(2);
 
 	//타일의 이미지 추가
-	IMAGEMANAGER->addFrameDImage("마을타일프레임", L"타일/마을타일_20_10.png", 520, 260, 20, 10);
-	IMAGEMANAGER->addFrameDImage("마을오브젝트1_프레임", L"타일/마을오브젝트1.png", 520, 260, 20, 10);
-	IMAGEMANAGER->addFrameDImage("마을_집_프레임", L"타일/마을_집.png", 520, 260, 20, 10);
-	IMAGEMANAGER->addFrameDImage("마을_집2_프레임", L"타일/마을_집2.png", 520, 260, 20, 10);
-	IMAGEMANAGER->addFrameDImage("마을_집3_프레임", L"타일/마을_집3.png", 520, 260, 20, 10);
-	IMAGEMANAGER->addFrameDImage("던전선택", L"타일/던전선택.png", 520, 260, 20, 10);
-	IMAGEMANAGER->addFrameDImage("집프레임", L"타일/집프레임.png", 11395, 154, 53, 1);
-	IMAGEMANAGER->addFrameDImage("상점타일1", L"타일/상점타일1.png", 520, 260, 20, 10);
-	IMAGEMANAGER->addFrameDImage("상점타일2", L"타일/상점타일2.png", 520, 260, 20, 10);
+	IMAGEMANAGER->addFrameDImage("VilageTileFrame", L"Tile/HouseTile_20_10.png", 520, 260, 20, 10);
+	IMAGEMANAGER->addFrameDImage("VilageObject1_Frame", L"Tile/Vilage_Object1.png", 520, 260, 20, 10);
+	IMAGEMANAGER->addFrameDImage("Vilage_House_Frame", L"Tile/Vilage_House.png", 520, 260, 20, 10);
+	IMAGEMANAGER->addFrameDImage("Vilage_House2_Frame", L"Tile/Vilage_House2.png", 520, 260, 20, 10);
+	IMAGEMANAGER->addFrameDImage("Vilage_House3_Frame", L"Tile/Vilage_House3.png", 520, 260, 20, 10);
+	IMAGEMANAGER->addFrameDImage("DunGeonChoice", L"Tile/DunGeonChoice.png", 520, 260, 20, 10);
+	IMAGEMANAGER->addFrameDImage("HouseFrame", L"Tile/HouseFrame.png", 11395, 154, 53, 1);
+	IMAGEMANAGER->addFrameDImage("ShopTile1", L"Tile/ShopTile1.png", 520, 260, 20, 10);
+	IMAGEMANAGER->addFrameDImage("ShopTile2", L"Tile/ShopTile2.png", 520, 260, 20, 10);
 
 	load();
 
@@ -51,28 +51,28 @@ void shopTileMap::render()
 			switch (_tiles[i].pageTerrain)
 			{
 			case 0:
-				IMAGEMANAGER->findDImage("마을타일프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
+				IMAGEMANAGER->findDImage("VilageTileFrame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
 				break;
 			case 1:
-				IMAGEMANAGER->findDImage("마을오브젝트1_프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
+				IMAGEMANAGER->findDImage("VilageObject1_Frame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
 				break;
 			case 2:
-				IMAGEMANAGER->findDImage("마을_집_프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
+				IMAGEMANAGER->findDImage("Vilage_House_Frame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
 				break;
 			case 3:
-				IMAGEMANAGER->findDImage("마을_집2_프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
+				IMAGEMANAGER->findDImage("Vilage_House2_Frame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
 				break;
 			case 4:
-				IMAGEMANAGER->findDImage("마을_집3_프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
+				IMAGEMANAGER->findDImage("Vilage_House3_Frame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
 				break;
 			case 5:
-				IMAGEMANAGER->findDImage("던전선택")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
+				IMAGEMANAGER->findDImage("DunGeonChoice")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
 				break;
 			case 6:
-				IMAGEMANAGER->findDImage("상점타일1")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
+				IMAGEMANAGER->findDImage("ShopTile1")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
 				break;
 			case 7:
-				IMAGEMANAGER->findDImage("상점타일2")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
+				IMAGEMANAGER->findDImage("ShopTile2")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].terrainFrameX, _tiles[i].terrainFrameY);
 				break;
 			}
 
@@ -100,28 +100,28 @@ void shopTileMap::objectRender()
 				switch (_tiles[i].pageObject)
 				{
 				case 0:
-					IMAGEMANAGER->findDImage("마을타일프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
+					IMAGEMANAGER->findDImage("VilageTileFrame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
 					break;
 				case 1:
-					IMAGEMANAGER->findDImage("마을오브젝트1_프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
+					IMAGEMANAGER->findDImage("VilageObject1_Frame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
 					break;
 				case 2:
-					IMAGEMANAGER->findDImage("마을_집_프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
+					IMAGEMANAGER->findDImage("Vilage_House_Frame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
 					break;
 				case 3:
-					IMAGEMANAGER->findDImage("마을_집2_프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
+					IMAGEMANAGER->findDImage("Vilage_House2_Frame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
 					break;
 				case 4:
-					IMAGEMANAGER->findDImage("마을_집3_프레임")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
+					IMAGEMANAGER->findDImage("Vilage_House3_Frame")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
 					break;
 				case 5:
-					IMAGEMANAGER->findDImage("던전선택")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
+					IMAGEMANAGER->findDImage("DunGeonChoice")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
 					break;
 				case 6:
-					IMAGEMANAGER->findDImage("상점타일1")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
+					IMAGEMANAGER->findDImage("ShopTile1")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
 					break;
 				case 7:
-					IMAGEMANAGER->findDImage("상점타일2")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
+					IMAGEMANAGER->findDImage("ShopTile2")->frameRender(_tiles[i].rc.left, _tiles[i].rc.top, _tiles[i].objFrameX, _tiles[i].objFrameY);
 					break;
 				}
 		}
@@ -143,7 +143,7 @@ void shopTileMap::load()
 	DWORD read;
 
 
-	file = CreateFile("상점타일.map", GENERIC_READ, NULL, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	file = CreateFile("ShopTile.map", GENERIC_READ, NULL, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
 	ReadFile(file, _tiles, sizeof(tagTile)*TILEX*TILEY, &read, NULL);
 	CloseHandle(file);

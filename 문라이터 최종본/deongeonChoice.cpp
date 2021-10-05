@@ -12,7 +12,7 @@ deongeonChoice::~deongeonChoice()
 
 HRESULT deongeonChoice::init()
 {
-	SOUNDMANAGER->play("던전선택배경음악");
+	SOUNDMANAGER->play("DungeonChoiceBackgroundMusic");
 	_deongeonTileMap = new deongeonChoiceTileMap;
 	_deongeonTileMap->init();
 	_player = new player;
@@ -20,25 +20,25 @@ HRESULT deongeonChoice::init()
 	_ui = new UI;
 	_ui->init();
 	//플레이어 좌표 저장
-	_player->setPlayerX(atoi(INIDATA->loadDataString("플레이어좌표", "deongeonChoice", "playerX")));
-	_player->setPlayerY(atoi(INIDATA->loadDataString("플레이어좌표", "deongeonChoice", "playerY")));
+	_player->setPlayerX(atoi(INIDATA->loadDataString("PlayerCoordinate", "deongeonChoice", "playerX")));
+	_player->setPlayerY(atoi(INIDATA->loadDataString("PlayerCoordinate", "deongeonChoice", "playerY")));
 	if (_player->getPlayer().x == NULL) _player->setPlayerX(600);
 	if (_player->getPlayer().y == NULL) _player->setPlayerY(1020);
 	_alpha.rc = RectMake(0, 0, 1300, 1066);
 	_alpha.alpha = 1.f;
-	//던전 입장전 대화창 배경
-	IMAGEMANAGER->addDImage("deongeonChoice베이스_short", L"UI/대화창 배경.png", 100, 25);
+	//던전 입장전 TalkBackground
+	IMAGEMANAGER->addDImage("deongeonChoiceBase_short", L"UI/TalkBackground.png", 100, 25);
 	//대화창 이미지
-	_talkBaseShort.img = IMAGEMANAGER->findDImage("deongeonChoice베이스_short");
-	_talkButton = IMAGEMANAGER->findDImage("J버튼");
+	_talkBaseShort.img = IMAGEMANAGER->findDImage("deongeonChoiceBase_short");
+	_talkButton = IMAGEMANAGER->findDImage("J_Button");
 	_talkBaseShort.isTalk = false;
-	IMAGEMANAGER->addFrameDImage("포탈클로즈", L"던전/포탈클로즈.png", 280, 22, 7, 1);
-	IMAGEMANAGER->addFrameDImage("포탈오픈", L"던전/포탈오픈.png", 280, 22, 7, 1);
-	IMAGEMANAGER->addFrameDImage("포탈입장", L"던전/포탈입장.png", 880, 46, 22, 1);
-	IMAGEMANAGER->addFrameDImage("포탈활성화", L"던전/포탈활성화.png", 240, 21, 6, 1);
+	IMAGEMANAGER->addFrameDImage("PortalClose", L"DunGeon/PortalClose.png", 280, 22, 7, 1);
+	IMAGEMANAGER->addFrameDImage("PortalOpen", L"DunGeon/PortalOpen.png", 280, 22, 7, 1);
+	IMAGEMANAGER->addFrameDImage("portalIn", L"DunGeon/portalIn.png", 880, 46, 22, 1);
+	IMAGEMANAGER->addFrameDImage("Portal_Active", L"DunGeon/Portal_Active.png", 240, 21, 6, 1);
 	
 	//던전입구 오브젝트
-	_portalDoorOpen.img = IMAGEMANAGER->findDImage("포탈오픈");
+	_portalDoorOpen.img = IMAGEMANAGER->findDImage("PortalOpen");
 	_portalDoorOpen.x = 458;
 	_portalDoorOpen.y = 513;
 	_portalDoorOpen.count = 0;
@@ -47,7 +47,7 @@ HRESULT deongeonChoice::init()
 	_portalDoorOpen.rc = RectMakeCenter(_portalDoorOpen.x, _portalDoorOpen.y, _portalDoorOpen.img->getFrameWidth(), _portalDoorOpen.img->getFrameHeight());
 	_portalDoorAtive.isBool = false;
 
-	_portalDoorAtive.img = IMAGEMANAGER->findDImage("포탈활성화");
+	_portalDoorAtive.img = IMAGEMANAGER->findDImage("Portal_Active");
 	_portalDoorAtive.x = 458;
 	_portalDoorAtive.y = 512;
 	_portalDoorAtive.count = 0;
@@ -55,7 +55,7 @@ HRESULT deongeonChoice::init()
 	_portalDoorAtive.currentFrameY = 0;
 	_portalDoorAtive.rc = RectMakeCenter(_portalDoorAtive.x, _portalDoorAtive.y, _portalDoorAtive.img->getFrameWidth(), _portalDoorAtive.img->getFrameHeight());
 	
-	_portalDoorGo.img = IMAGEMANAGER->findDImage("포탈입장");
+	_portalDoorGo.img = IMAGEMANAGER->findDImage("portalIn");
 	_portalDoorGo.x = 438;
 	_portalDoorGo.y = 502;
 	_portalDoorGo.count = 0;
@@ -90,22 +90,22 @@ HRESULT deongeonChoice::init()
 				switch (_deongeonTileMap->getTile(i).pageObject)
 				{
 				case 0:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을타일프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("VilageTileFrame");
 					break;
 				case 1:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을오브젝트1_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("VilageObject1_Frame");
 					break;
 				case 2:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을_집_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("Vilage_House_Frame");
 					break;
 				case 3:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을_집2_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("Vilage_House2_Frame");
 					break;
 				case 4:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을_집3_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("Vilage_House3_Frame");
 					break;
 				case 5:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("던전선택");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("DunGeonChoice");
 					break;
 				}
 
@@ -130,8 +130,8 @@ bool compare(tagTile * a, tagTile * b)
 void deongeonChoice::release()
 {
 	_vZorder.clear();
-	SOUNDMANAGER->stop("던전선택배경음악");
-	SOUNDMANAGER->stop("윌발걸음");
+	SOUNDMANAGER->stop("DungeonChoiceBackgroundMusic");
+	SOUNDMANAGER->stop("WillStep");
 }
 void deongeonChoice::update()
 {
@@ -153,7 +153,7 @@ void deongeonChoice::update()
 			_itoa_s(_player->getPlayer().y - 20, _playerYchar, sizeof(&_playerYchar), 10);
 			INIDATA->addData("deongeonChoice", "playerX", _playerXchar);
 			INIDATA->addData("deongeonChoice", "playerY", _playerYchar);
-			INIDATA->iniSave("플레이어좌표");
+			INIDATA->iniSave("PlayerCoordinate");
 			SCENEMANAGER->changeScene("village");
 
 		}
@@ -195,7 +195,7 @@ void deongeonChoice::update()
 			}
 			if (_portalDoorGo.isBool) 
 			{
-				if (_portalDoorGo.currentFrameX == 0 && _portalDoorGo.count == 0) SOUNDMANAGER->play("포탈입장");
+				if (_portalDoorGo.currentFrameX == 0 && _portalDoorGo.count == 0) SOUNDMANAGER->play("portalIn");
 				_portalDoorGo.count++;
 				if (_portalDoorGo.count % 7 == 0)
 				{

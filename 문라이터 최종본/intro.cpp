@@ -11,7 +11,7 @@ intro::~intro()
 
 HRESULT intro::init()
 {
-	SOUNDMANAGER->play("인트로배경음악");
+	SOUNDMANAGER->play("IntroBackgroundMusic");
 	_cameraSizeX = 450;
 	_cameraSizeY = 213;
 	CAMERAMANAGER->setBackScreenSize(_cameraSizeX, _cameraSizeY);
@@ -80,7 +80,7 @@ HRESULT intro::init()
 
 void intro::release()
 {
-	SOUNDMANAGER->stop("인트로배경음악");
+	SOUNDMANAGER->stop("IntroBackgroundMusic");
 }
 
 void intro::update()
@@ -191,13 +191,13 @@ void intro::button_menu()
 	//메뉴아이콘 움직임
 	if (KEYMANAGER->isOnceKeyDown('W'))
 	{
-		SOUNDMANAGER->play("메뉴선택");
+		SOUNDMANAGER->play("MenuChoice");
 		_menuSelect--;
 		if (_menuSelect <= 0)_menuSelect = 0;
 	}
 	if (KEYMANAGER->isOnceKeyDown('S'))
 	{
-		SOUNDMANAGER->play("메뉴선택");
+		SOUNDMANAGER->play("MenuChoice");
 		_menuSelect++;
 		if (_menuSelect >= 2) _menuSelect = 2;
 	}
@@ -210,18 +210,18 @@ void intro::button_menu()
 		break;
 	case 1:
 		_menuIcon[0].y = _menuIcon[1].y = _menu[1].y - 5;
-		INIDATA->addData("설계도", "개수", NULL);
-		INIDATA->addData("부러진검", "개수", NULL);
-		INIDATA->addData("크리스탈", "개수", NULL);
-		INIDATA->addData("골렘코어", "개수", NULL);
-		INIDATA->addData("역사서", "개수", NULL);
-		INIDATA->addData("생명수", "개수", NULL);
-		INIDATA->addData("노트", "개수", NULL);
-		INIDATA->addData("금속", "개수", NULL);
-		INIDATA->addData("빨대", "개수", NULL);
-		INIDATA->addData("전선", "개수", NULL);
-		INIDATA->addData("보유재화", "돈", NULL);
-		INIDATA->iniSave("아이템정보");
+		INIDATA->addData("blueprint", "Item_Count", NULL);
+		INIDATA->addData("Break_Sword", "Item_Count", NULL);
+		INIDATA->addData("Crystal", "Item_Count", NULL);
+		INIDATA->addData("Golem_core", "Item_Count", NULL);
+		INIDATA->addData("History_Book", "Item_Count", NULL);
+		INIDATA->addData("Life_Water", "Item_Count", NULL);
+		INIDATA->addData("Note", "Item_Count", NULL);
+		INIDATA->addData("Steel", "Item_Count", NULL);
+		INIDATA->addData("Straw", "Item_Count", NULL);
+		INIDATA->addData("Electronic_Line", "Item_Count", NULL);
+		INIDATA->addData("My_Money", "Money", NULL);
+		INIDATA->iniSave("Item_info");
 		if (KEYMANAGER->isOnceKeyDown('J')) SCENEMANAGER->changeScene("shop");
 		break;
 	case 2:

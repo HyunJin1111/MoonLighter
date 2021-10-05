@@ -26,7 +26,7 @@ HRESULT player::init()
 	_player.rc = RectMakeCenter(_player.x, _player.y, _player.img->getFrameWidth(), _player.img->getFrameHeight());
 	_player.count = 0;
 	_player.currentFrameX = _player.currentFrameY = 0;
-	_player.img = IMAGEMANAGER->findDImage("Àª±âº»¾Æ·¡");
+	_player.img = IMAGEMANAGER->findDImage("will_idle_down");
 
 	_hpBar = new progressBar;
 	_hpBar->init(115, 25, 64, 12);
@@ -79,32 +79,32 @@ void player::hpRender()
 
 void player::setPlayer()
 {
-	IMAGEMANAGER->addFrameDImage("Àª±âº»¾Æ·¡", L"Àª/will_idle_down.png", 200, 38, 10, 1);
-	IMAGEMANAGER->addFrameDImage("Àª±âº»À§", L"Àª/will_idle_up.png", 210, 38, 10, 1);
-	IMAGEMANAGER->addFrameDImage("Àª±âº»¿ÞÂÊ", L"Àª/will_idle_left.png", 280, 38, 10, 1);
-	IMAGEMANAGER->addFrameDImage("Àª±âº»¿À¸¥ÂÊ", L"Àª/will_idle_right.png", 280, 38, 10, 1);
+	IMAGEMANAGER->addFrameDImage("will_idle_down", L"Will/will_idle_down.png", 200, 38, 10, 1);
+	IMAGEMANAGER->addFrameDImage("will_idle_up", L"Will/will_idle_up.png", 210, 38, 10, 1);
+	IMAGEMANAGER->addFrameDImage("will_idle_left", L"Will/will_idle_left.png", 280, 38, 10, 1);
+	IMAGEMANAGER->addFrameDImage("will_idle_right", L"Will/will_idle_right.png", 280, 38, 10, 1);
 
-	IMAGEMANAGER->addFrameDImage("Àª°È±â¾Æ·¡", L"Àª/will_run_down.png", 160, 35, 8, 1);
-	IMAGEMANAGER->addFrameDImage("Àª°È±âÀ§", L"Àª/will_run_up.png", 168, 39, 8, 1);
-	IMAGEMANAGER->addFrameDImage("Àª°È±â¿ÞÂÊ", L"Àª/will_run_left.png", 248, 36, 8, 1);
-	IMAGEMANAGER->addFrameDImage("Àª°È±â¿À¸¥ÂÊ", L"Àª/will_run_right.png", 248, 36, 8, 1);
+	IMAGEMANAGER->addFrameDImage("will_run_down", L"Will/will_run_down.png", 160, 35, 8, 1);
+	IMAGEMANAGER->addFrameDImage("will_run_up", L"Will/will_run_up.png", 168, 39, 8, 1);
+	IMAGEMANAGER->addFrameDImage("will_run_left", L"Will/will_run_left.png", 248, 36, 8, 1);
+	IMAGEMANAGER->addFrameDImage("will_run_right", L"Will/will_run_right.png", 248, 36, 8, 1);
 
-	IMAGEMANAGER->addFrameDImage("Àª±¸¸£±â¾Æ·¡", L"Àª/will_roll_down.png", 200, 38, 8, 1);
-	IMAGEMANAGER->addFrameDImage("Àª±¸¸£±âÀ§", L"Àª/will_roll_up.png", 176, 37, 8, 1);
-	IMAGEMANAGER->addFrameDImage("Àª±¸¸£±â¿ÞÂÊ", L"Àª/will_roll_left.png", 248, 36, 8, 1);
-	IMAGEMANAGER->addFrameDImage("Àª±¸¸£±â¿À¸¥ÂÊ", L"Àª/will_roll_right.png", 248, 36, 8, 1);
+	IMAGEMANAGER->addFrameDImage("will_roll_down", L"Will/will_roll_down.png", 200, 38, 8, 1);
+	IMAGEMANAGER->addFrameDImage("will_roll_up", L"Will/will_roll_up.png", 176, 37, 8, 1);
+	IMAGEMANAGER->addFrameDImage("will_roll_left", L"Will/will_roll_left.png", 248, 36, 8, 1);
+	IMAGEMANAGER->addFrameDImage("will_roll_right", L"Will/will_roll_right.png", 248, 36, 8, 1);
 
-	IMAGEMANAGER->addFrameDImage("Àª´Ü°Ë¾Æ·¡", L"Àª/sword_down.png", 1080, 72, 18, 1);
-	IMAGEMANAGER->addFrameDImage("Àª´Ü°ËÀ§", L"Àª/sword_up.png", 1080, 57, 18, 1);
-	IMAGEMANAGER->addFrameDImage("Àª´Ü°Ë¿ÞÂÊ", L"Àª/sword_left.png", 1080, 70, 18, 1);
-	IMAGEMANAGER->addFrameDImage("Àª´Ü°Ë¿À¸¥ÂÊ", L"Àª/sword_right.png", 1116, 70, 18, 1);
+	IMAGEMANAGER->addFrameDImage("sword_down", L"Will/sword_down.png", 1080, 72, 18, 1);
+	IMAGEMANAGER->addFrameDImage("sword_up", L"Will/sword_up.png", 1080, 57, 18, 1);
+	IMAGEMANAGER->addFrameDImage("sword_left", L"Will/sword_left.png", 1080, 70, 18, 1);
+	IMAGEMANAGER->addFrameDImage("sword_right", L"Will/sword_right.png", 1116, 70, 18, 1);
 
-	IMAGEMANAGER->addFrameDImage("Àª¼ö¿µ¾Æ·¡", L"Àª/will_swim_down.png", 180, 21, 10, 1);
-	IMAGEMANAGER->addFrameDImage("Àª¼ö¿µÀ§", L"Àª/will_swim_up.png", 170, 21, 10, 1);
-	IMAGEMANAGER->addFrameDImage("Àª¼ö¿µ¿ÞÂÊ", L"Àª/will_swim_left.png", 170, 22, 10, 1);
-	IMAGEMANAGER->addFrameDImage("Àª¼ö¿µ¿À¸¥ÂÊ", L"Àª/will_swim_right.png", 170, 22, 10, 1);
+	IMAGEMANAGER->addFrameDImage("will_swim_down", L"Will/will_swim_down.png", 180, 21, 10, 1);
+	IMAGEMANAGER->addFrameDImage("will_swim_up", L"Will/will_swim_up.png", 170, 21, 10, 1);
+	IMAGEMANAGER->addFrameDImage("will_swim_left", L"Will/will_swim_left.png", 170, 22, 10, 1);
+	IMAGEMANAGER->addFrameDImage("will_swim_right", L"Will/will_swim_right.png", 170, 22, 10, 1);
 
-	IMAGEMANAGER->addFrameDImage("ÀªÁ×À½", L"Àª/will_die.png", 440, 42, 10, 1);
+	IMAGEMANAGER->addFrameDImage("will_die", L"Will/will_die.png", 440, 42, 10, 1);
 
 
 	_player.direction = PLAYER_DOWN;

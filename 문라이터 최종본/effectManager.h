@@ -8,6 +8,9 @@ class effect;
 class effectManager : public singletonBase<effectManager>
 {
 private:
+	effectManager();
+	~effectManager();
+	friend singletonBase;
 	//»ý»ê
 	typedef vector<effect*>								arrEffects;
 	typedef vector<effect*>::iterator					iterEffects;
@@ -22,8 +25,7 @@ private:
 	arrTotalEffect _vTotalEffect;
 
 public:
-	effectManager();
-	~effectManager();
+	
 
 	HRESULT init();
 	void release();

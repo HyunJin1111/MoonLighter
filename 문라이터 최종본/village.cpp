@@ -13,7 +13,7 @@ village::~village()
 HRESULT village::init()
 {
 	
-	SOUNDMANAGER->play("마을배경음악");
+	SOUNDMANAGER->play("VilageBackgroundMusic");
 	_villageTilemap = new villageTileMap;
 	_villageTilemap->init();
 	_player = new player;
@@ -21,14 +21,14 @@ HRESULT village::init()
 	_ui = new UI;
 	_ui->init();
 	//플레이어 좌표 저장
-	_player->setPlayerX(atoi(INIDATA->loadDataString("플레이어좌표", "village", "playerX")));
-	_player->setPlayerY(atoi(INIDATA->loadDataString("플레이어좌표", "village", "playerY")));
+	_player->setPlayerX(atoi(INIDATA->loadDataString("PlayerCoordinate", "village", "playerX")));
+	_player->setPlayerY(atoi(INIDATA->loadDataString("PlayerCoordinate", "village", "playerY")));
 	if (_player->getPlayer().x == NULL) _player->setPlayerX(750);
 	if (_player->getPlayer().y == NULL) _player->setPlayerY(280);
 	_alpha.rc = RectMake(0, 0, 1300, 1066);
 	_alpha.alpha = 1.f;
 
-	IMAGEMANAGER->addDImage("village베이스_short", L"UI/대화창 배경.png", 100, 25);
+	IMAGEMANAGER->addDImage("villageBase_short", L"UI/TalkBackground.png", 100, 25);
 	IMAGEMANAGER->addFrameDImage("blackSmith", L"NPC/blackSmith.png", 324, 41, 12, 1);
 	IMAGEMANAGER->addFrameDImage("witch", L"NPC/witch.png", 600, 36, 24, 1);
 	IMAGEMANAGER->addFrameDImage("extra1_left", L"NPC/extra1_left.png", 144, 37, 8, 1);
@@ -36,8 +36,8 @@ HRESULT village::init()
 	IMAGEMANAGER->addFrameDImage("extra2_down", L"NPC/extra2_down.png", 280, 36, 8, 1);
 	IMAGEMANAGER->addFrameDImage("extra2_up", L"NPC/extra2_up.png", 280, 36, 8, 1);
 	//대화창 이미지
-	_talkBaseShort.img = IMAGEMANAGER->findDImage("village베이스_short");
-	_talkButton = IMAGEMANAGER->findDImage("J버튼");
+	_talkBaseShort.img = IMAGEMANAGER->findDImage("villageBase_short");
+	_talkButton = IMAGEMANAGER->findDImage("J_Button");
 	_door = RectMakeCenter(750, 250, 25, 50);
 
 
@@ -53,7 +53,7 @@ HRESULT village::init()
 
 	_vZorder.push_back(&_vPlayer);
 
-	//타일 푸쉬백
+	//Tile 푸쉬백
 	for (int i = 0; i < TILEX * TILEY; ++i)
 	{
 		if (_villageTilemap->getTile(i).imgAt == DEFAULT_IMAGE || _villageTilemap->getTile(i).imgAt == FRAME_IMAGE)
@@ -63,28 +63,28 @@ HRESULT village::init()
 				switch (_villageTilemap->getTile(i).pageObject)
 				{
 				case 0:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을타일프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("VilageTileFrame");
 					break;
 				case 1:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을오브젝트1_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("VilageObject1_Frame");
 					break;
 				case 2:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을_집_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("Vilage_House_Frame");
 					break;
 				case 3:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을_집2_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("Vilage_House2_Frame");
 					break;
 				case 4:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을_집3_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("Vilage_House3_Frame");
 					break;
 				case 5:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("던전선택");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("DunGeonChoice");
 					break;
 				case 6:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("상점타일1");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("ShopTile1");
 					break;
 				case 7:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("상점타일2");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("ShopTile2");
 					break;
 				}
 
@@ -109,7 +109,7 @@ HRESULT village::init()
 				if (_villageTilemap->getTile(i).objFrameX == 0 && _villageTilemap->getTile(i).objFrameY == 7)
 				{
 					_vtree1[i].rc = _villageTilemap->getTile(i).rc;
-					_vtree1[i].img = IMAGEMANAGER->findDImage("나무1");
+					_vtree1[i].img = IMAGEMANAGER->findDImage("Tree1");
 					_vtree1[i].rc.bottom = _villageTilemap->getTile(i).rc.bottom + _vtree1[i].img->getHeight() - TILESIZE;
 					_vtree1[i].objFrameX = 0;
 					_vtree1[i].objFrameY = 0;
@@ -120,7 +120,7 @@ HRESULT village::init()
 				if (_villageTilemap->getTile(i).objFrameX == 6 && _villageTilemap->getTile(i).objFrameY == 7)
 				{
 					_vtree2[i].rc = _villageTilemap->getTile(i).rc;
-					_vtree2[i].img = IMAGEMANAGER->findDImage("나무2");
+					_vtree2[i].img = IMAGEMANAGER->findDImage("Tree2");
 					_vtree2[i].rc.bottom = _villageTilemap->getTile(i).rc.bottom + _vtree2[i].img->getHeight() - TILESIZE;
 					_vtree2[i].objFrameX = 0;
 					_vtree2[i].objFrameY = 0;
@@ -131,7 +131,7 @@ HRESULT village::init()
 				if (_villageTilemap->getTile(i).objFrameX == 12 && _villageTilemap->getTile(i).objFrameY == 4)
 				{
 					_vtree3[i].rc = _villageTilemap->getTile(i).rc;
-					_vtree3[i].img = IMAGEMANAGER->findDImage("나무4");
+					_vtree3[i].img = IMAGEMANAGER->findDImage("Tree4");
 					_vtree3[i].rc.bottom = _villageTilemap->getTile(i).rc.bottom + _vtree3[i].img->getHeight() - TILESIZE * 2;
 					_vtree3[i].objFrameX = 0;
 					_vtree3[i].objFrameY = 0;
@@ -142,7 +142,7 @@ HRESULT village::init()
 				if (_villageTilemap->getTile(i).objFrameX == 2 && _villageTilemap->getTile(i).objFrameY == 5)
 				{
 					_fountain[i].rc = _villageTilemap->getTile(i).rc;
-					_fountain[i].img = IMAGEMANAGER->findDImage("분수대");
+					_fountain[i].img = IMAGEMANAGER->findDImage("Fountain");
 					_fountain[i].rc.bottom = _villageTilemap->getTile(i).rc.bottom + _fountain[i].img->getHeight() - TILESIZE;
 					_fountain[i].objFrameX = 0;
 					_fountain[i].objFrameY = 0;
@@ -153,7 +153,7 @@ HRESULT village::init()
 				if (_villageTilemap->getTile(i).objFrameX == 7 && _villageTilemap->getTile(i).objFrameY == 4)
 				{
 					_well[i].rc = _villageTilemap->getTile(i).rc;
-					_well[i].img = IMAGEMANAGER->findDImage("우물");
+					_well[i].img = IMAGEMANAGER->findDImage("Well");
 					_well[i].rc.bottom = _villageTilemap->getTile(i).rc.bottom + _well[i].img->getHeight() - TILESIZE;
 					_well[i].objFrameX = 0;
 					_well[i].objFrameY = 0;
@@ -168,7 +168,7 @@ HRESULT village::init()
 				if (_villageTilemap->getTile(i).objFrameX == 4 && _villageTilemap->getTile(i).objFrameY == 4)
 				{
 					_vHouse.rc = _villageTilemap->getTile(i).rc;
-					_vHouse.img = IMAGEMANAGER->findDImage("집프레임");
+					_vHouse.img = IMAGEMANAGER->findDImage("HouseFrame");
 					_vHouse.rc.bottom = _villageTilemap->getTile(i).rc.bottom + _vHouse.img->getHeight() - TILESIZE * 2;
 					_vHouse.objFrameX = 0;
 					_vHouse.objFrameY = 0;
@@ -228,8 +228,8 @@ HRESULT village::init()
 void village::release()
 {
 	_vZorder.clear();
-	SOUNDMANAGER->stop("마을배경음악");
-	SOUNDMANAGER->stop("윌발걸음");
+	SOUNDMANAGER->stop("VilageBackgroundMusic");
+	SOUNDMANAGER->stop("WillStep");
 }
 bool compare3(tagTile * a, tagTile * b)
 {
@@ -264,7 +264,7 @@ void village::update()
 				_itoa_s(_player->getPlayer().y + 20, _playerYchar, sizeof(&_playerYchar), 10);
 				INIDATA->addData("village", "playerX", _playerXchar);
 				INIDATA->addData("village", "playerY", _playerYchar);
-				INIDATA->iniSave("플레이어좌표");
+				INIDATA->iniSave("PlayerCoordinate");
 				SCENEMANAGER->changeScene("shop");
 			}
 		}
@@ -275,7 +275,7 @@ void village::update()
 			_itoa_s(_player->getPlayer().y + 20, _playerYchar, sizeof(&_playerYchar), 10);
 			INIDATA->addData("village", "playerX", _playerXchar);
 			INIDATA->addData("village", "playerY", _playerYchar);
-			INIDATA->iniSave("플레이어좌표");
+			INIDATA->iniSave("PlayerCoordinate");
 			SCENEMANAGER->changeScene("deongeonChoice");
 		}
 		if (IntersectRect(&temp, &_roadDeongeon[1], &p))
@@ -284,7 +284,7 @@ void village::update()
 			_itoa_s(_player->getPlayer().y + 20, _playerYchar, sizeof(&_playerYchar), 10);
 			INIDATA->addData("village", "playerX", _playerXchar);
 			INIDATA->addData("village", "playerY", _playerYchar);
-			INIDATA->iniSave("플레이어좌표");
+			INIDATA->iniSave("PlayerCoordinate");
 			SCENEMANAGER->changeScene("deongeonChoice");
 		}
 		_player->update();

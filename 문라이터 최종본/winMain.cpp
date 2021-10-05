@@ -81,7 +81,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 				INIDATA->addData("village", "playerY", NULL);
 				INIDATA->addData("deongeonChoice", "playerX", NULL);
 				INIDATA->addData("deongeonChoice", "playerY", NULL);
-				INIDATA->iniSave("플레이어좌표");
+				INIDATA->iniSave("PlayerCoordinate");
 				break;
 			}
 			TranslateMessage(&message);

@@ -6,6 +6,11 @@
 class streamManager : public singletonBase<streamManager>
 {
 private:
+	streamManager();
+	~streamManager();
+
+	friend singletonBase;
+
 	typedef map<string, video*>				mapVideoList;
 	typedef map<string, video*>::iterator	mapVideoIter;
 
@@ -13,8 +18,7 @@ private:
 	video* _currentVideo;
 
 public:
-	streamManager();
-	~streamManager();
+	
 	HRESULT init();
 	void release();
 

@@ -14,7 +14,7 @@ bossState * bossAttack1::inputHandle(boss * boss)
 
 void bossAttack1::enter(boss * boss)
 {
-	boss->setBossImg(IMAGEMANAGER->findDImage("보스_attack1"));
+	boss->setBossImg(IMAGEMANAGER->findDImage("boss_launch"));
 	boss->setBossCurrentFrameX(0);
 	boss->setBossCurrentFrameY(0);
 	_bossCount = 0;
@@ -35,7 +35,7 @@ void bossAttack1::update(boss * boss)
 		boss->setBossAttack1(true);
 	}
 
-	if (boss->getBoss().currentFrameX == 25 && _bossCount == 0) SOUNDMANAGER->play("보스어택1");
+	if (boss->getBoss().currentFrameX == 25 && _bossCount == 0) SOUNDMANAGER->play("BossAttackSound1");
 
 }
 

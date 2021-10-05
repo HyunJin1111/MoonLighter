@@ -11,9 +11,9 @@ slime::~slime()
 
 HRESULT slime::init(int x, int y, RECT player, int diffrentX, int diffrentY, int backGroundNum)
 {
-	IMAGEMANAGER->addFrameDImage("slime_walk", L"적/slime_walk.png", 168, 24, 8, 1);
-	IMAGEMANAGER->addFrameDImage("slime_attack", L"적/slime_attack.png", 1120, 48, 16, 1);
-	IMAGEMANAGER->addFrameDImage("slime_die", L"적/slime_die.png", 640, 44, 10, 1);
+	IMAGEMANAGER->addFrameDImage("slime_walk", L"Enemy/slime_walk.png", 168, 24, 8, 1);
+	IMAGEMANAGER->addFrameDImage("slime_attack", L"Enemy/slime_attack.png", 1120, 48, 16, 1);
+	IMAGEMANAGER->addFrameDImage("slime_die", L"Enemy/slime_die.png", 640, 44, 10, 1);
 
 	tagSlime slime;
 	ZeroMemory(&slime, sizeof(tagSlime));
@@ -121,7 +121,7 @@ void slime::update(int diffrentX, int diffrentY, RECT player, int backNum)
 			if (_vSlime[i].rand % 70 == 0)
 			{
 				_vSlime[i].state = SLIME_ATTACK;
-				SOUNDMANAGER->play("슬라임공격");
+				SOUNDMANAGER->play("SlimeAttackSound");
 				_vSlime[i].currentFrameX = 0;
 				_vSlime[i].changeState = true;
 				_vSlime[i].rand = 0;
@@ -208,7 +208,7 @@ void slime::update(int diffrentX, int diffrentY, RECT player, int backNum)
 			_vSlime[i].enemyHitTime = false;
 			_vSlime[i].enemyHit = false;
 			_vSlime[i].state = SLIME_DIE;
-			SOUNDMANAGER->play("슬라임죽음");
+			SOUNDMANAGER->play("SlimeDeathSound");
 			_vSlime[i].die = true;
 			EFFECTMANAGER->play("slimeEffect", _vSlime[i].x, _vSlime[i].y, 1);
 			erase(i);

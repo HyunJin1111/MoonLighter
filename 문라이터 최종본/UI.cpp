@@ -149,9 +149,9 @@ void UI::update(float playerHp)
 						char cha_money[64];
 						cha[63] = _itoa_s(0, cha, sizeof(cha), 10);
 						cha_money[63] = _itoa_s(_money, cha_money, sizeof(cha_money), 10);
-						INIDATA->addData(_itemSellImg[i].name.c_str(), "개수", cha);
-						INIDATA->addData("보유재화", "돈", cha_money);
-						INIDATA->iniSave("아이템정보");
+						INIDATA->addData(_itemSellImg[i].name.c_str(), "Item_Count", cha);
+						INIDATA->addData("My_Money", "Money", cha_money);
+						INIDATA->iniSave("Item_info");
 						_vitemBase[i] = NULL;
 					}
 				}
@@ -231,8 +231,8 @@ void UI::update(float playerHp)
 					//제거한 아이템의 정보를 저장해주고 해당 vector를 NULL값으로 만든다.
 					char cha[64];
 					cha[63] = _itoa_s(0, cha, sizeof(cha), 10);
-					INIDATA->addData(_itemSellImg[i].name.c_str(), "개수", cha);
-					INIDATA->iniSave("아이템정보");
+					INIDATA->addData(_itemSellImg[i].name.c_str(), "Item_Count", cha);
+					INIDATA->iniSave("Item_info");
 					_vitemBase[i] = NULL;
 				}
 			}
@@ -386,37 +386,37 @@ void UI::render()
 
 void UI::setting()
 {
-	IMAGEMANAGER->addDImage("원1", L"UI/Circle_How.png", 50, 50);
-	IMAGEMANAGER->addDImage("원2", L"UI/Gold_circle.png", 35, 35);
-	IMAGEMANAGER->addDImage("원_하트", L"UI/HealthBar_Circle.png", 24, 24);
-	IMAGEMANAGER->addDImage("I버튼", L"UI/I버튼.png", 20, 20);
-	IMAGEMANAGER->addDImage("J버튼", L"UI/J버튼.png", 20, 20);
-	IMAGEMANAGER->addDImage("L버튼", L"UI/L버튼.png", 20, 20);
-	IMAGEMANAGER->addDImage("K버튼", L"UI/K버튼.png", 20, 20);
-	IMAGEMANAGER->addDImage("SPACE버튼", L"UI/SPACE버튼.png", 20, 20);
-	IMAGEMANAGER->addDImage("가방", L"UI/가방.png", 23, 26);
-	IMAGEMANAGER->addDImage("하트", L"UI/하트.png", 10, 9);
-	IMAGEMANAGER->addDImage("점프", L"UI/점프모션.png", 17, 19);
-	IMAGEMANAGER->addDImage("코인", L"UI/Item_Coin.png", 9, 9);
-	IMAGEMANAGER->addDImage("돈주머니4", L"UI/Gold4.png", 25, 28);
-	IMAGEMANAGER->addDImage("체력바back", L"UI/HealthBar_Base.png", 73, 22);
-	IMAGEMANAGER->addDImage("인벤토리베이스", L"UI/Inventory_base.png", 519, 274);
-	IMAGEMANAGER->addDImage("인벤토리베이스2", L"UI/Bag_paperbase.png", 241, 272);
-	IMAGEMANAGER->addDImage("일시정지_네모위", L"UI/GUI_Pause_Triangles_위.png", 150, 15);
-	IMAGEMANAGER->addDImage("일시정지_네모아래", L"UI/GUI_Pause_Triangles_아래.png", 150, 15);
-	IMAGEMANAGER->addDImage("일시정지_꼬리위", L"UI/GUI_Pause_Tail_위.png", 42, 23);
-	IMAGEMANAGER->addDImage("일시정지_꼬리아래", L"UI/GUI_Pause_Tail_아래.png", 42, 23);
-	IMAGEMANAGER->addDImage("일시정지_핫도그왼쪽", L"UI/GUI_Pause_Arm_왼쪽.png", 25, 42);
-	IMAGEMANAGER->addDImage("일시정지_핫도그오른쪽", L"UI/GUI_Pause_Arm_오른쪽.png", 25, 42);
-	IMAGEMANAGER->addDImage("일시정지_메뉴선택아이콘왼쪽", L"UI/메뉴선택아이콘_왼쪽.png", 19, 19);
-	IMAGEMANAGER->addDImage("일시정지_메뉴선택아이콘오른쪽", L"UI/메뉴선택아이콘_오른쪽.png", 19, 19);
-	IMAGEMANAGER->addDImage("일시정지_눈", L"UI/GUI_Pause_Eye.png", 19, 19);
-	IMAGEMANAGER->addDImage("일시정지_눈", L"UI/GUI_Pause_Eye.png", 19, 19);
-	IMAGEMANAGER->addFrameDImage("인벤토리윌", L"UI/will_idle_down.png", 400, 76, 10, 1);
-	IMAGEMANAGER->addDImage("검이미지", L"UI/soldier_short sword.png", 32, 32);
-	IMAGEMANAGER->addFrameDImage("슬라임획득", L"적/slime_walk.png", 168, 24, 8, 1);
-	IMAGEMANAGER->addFrameDImage("준보스획득", L"준보스/준보스_idle_down.png", 680, 108, 8, 1);
-	IMAGEMANAGER->addDImage("cursor", L"아이템/selector.png", 32, 32);
+	IMAGEMANAGER->addDImage("Circle_How", L"UI/Circle_How.png", 50, 50);
+	IMAGEMANAGER->addDImage("Gold_circle", L"UI/Gold_circle.png", 35, 35);
+	IMAGEMANAGER->addDImage("HealthBar_Circle", L"UI/HealthBar_Circle.png", 24, 24);
+	IMAGEMANAGER->addDImage("I_Button", L"UI/I_Button.png", 20, 20);
+	IMAGEMANAGER->addDImage("J_Button", L"UI/J_Button.png", 20, 20);
+	IMAGEMANAGER->addDImage("L_Button", L"UI/L_Button.png", 20, 20);
+	IMAGEMANAGER->addDImage("K_Button", L"UI/K_Button.png", 20, 20);
+	IMAGEMANAGER->addDImage("SPACE_Button", L"UI/SPACE_Button.png", 20, 20);
+	IMAGEMANAGER->addDImage("Bag", L"UI/Bag.png", 23, 26);
+	IMAGEMANAGER->addDImage("Heart", L"UI/Heart.png", 10, 9);
+	IMAGEMANAGER->addDImage("JumpMotion", L"UI/JumpMotion.png", 17, 19);
+	IMAGEMANAGER->addDImage("Item_Coin", L"UI/Item_Coin.png", 9, 9);
+	IMAGEMANAGER->addDImage("Gold4", L"UI/Gold4.png", 25, 28);
+	IMAGEMANAGER->addDImage("HealthBar_Base", L"UI/HealthBar_Base.png", 73, 22);
+	IMAGEMANAGER->addDImage("Inventory_base", L"UI/Inventory_base.png", 519, 274);
+	IMAGEMANAGER->addDImage("Bag_paperbase", L"UI/Bag_paperbase.png", 241, 272);
+	IMAGEMANAGER->addDImage("GUI_Pause_Triangles_Up", L"UI/GUI_Pause_Triangles_Up.png", 150, 15);
+	IMAGEMANAGER->addDImage("GUI_Pause_Triangles_Down", L"UI/GUI_Pause_Triangles_Down.png", 150, 15);
+	IMAGEMANAGER->addDImage("GUI_Pause_Tail_Up", L"UI/GUI_Pause_Tail_Up.png", 42, 23);
+	IMAGEMANAGER->addDImage("GUI_Pause_Tail_Down", L"UI/GUI_Pause_Tail_Down.png", 42, 23);
+	IMAGEMANAGER->addDImage("GUI_Pause_Arm_Left", L"UI/GUI_Pause_Arm_Left.png", 25, 42);
+	IMAGEMANAGER->addDImage("GUI_Pause_Arm_Right", L"UI/GUI_Pause_Arm_Right.png", 25, 42);
+	IMAGEMANAGER->addDImage("MenuChoiceIcon_Left", L"UI/MenuChoiceIcon_Left.png", 19, 19);
+	IMAGEMANAGER->addDImage("MenuChoiceIcon_Right", L"UI/MenuChoiceIcon_Right.png", 19, 19);
+	IMAGEMANAGER->addDImage("GUI_Pause_Eye", L"UI/GUI_Pause_Eye.png", 19, 19);
+	IMAGEMANAGER->addDImage("GUI_Pause_Eye", L"UI/GUI_Pause_Eye.png", 19, 19);
+	IMAGEMANAGER->addFrameDImage("Inventory_Will", L"UI/will_idle_down.png", 400, 76, 10, 1);
+	IMAGEMANAGER->addDImage("Sword_Image", L"UI/soldier_short_sword.png", 32, 32);
+	IMAGEMANAGER->addFrameDImage("Slime_Hunt", L"Enemy/slime_walk.png", 168, 24, 8, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_HunT", L"MiniBoss/MiniBoss_idle_down.png", 680, 108, 8, 1);
+	IMAGEMANAGER->addDImage("cursor", L"ITEM/selector.png", 32, 32);
 	IMAGEMANAGER->addFrameDImage("sellSlime", L"UI/itemSellSlime.png", 280, 32, 10, 1);
 	IMAGEMANAGER->addFrameDImage("sellSlimeActive", L"UI/itemSellSlimeActive.png", 288, 36, 8, 1);
 	IMAGEMANAGER->addFrameDImage("mirror", L"UI/mirror.png", 816, 110, 8, 1);
@@ -473,101 +473,101 @@ void UI::setting()
 	_mirror.rc = RectMakeCenter(_mirror.x, _mirror.y, _mirror.img->getFrameWidth(), _mirror.img->getFrameHeight());
 
 	//던전결과 관련
-	IMAGEMANAGER->addDImage("던전결과제목", L"UI/던전결과제목.png", 113, 17);
-	IMAGEMANAGER->addDImage("던전결과발판", L"UI/Base_GolemDungeon.png", 97, 135);
-	IMAGEMANAGER->addFrameDImage("포탈활성화", L"던전/포탈활성화.png", 240, 21, 6, 1);
-	IMAGEMANAGER->addDImage("던전UI문", L"UI/던전UI문.png", 60, 57);
-	IMAGEMANAGER->addDImage("던전결과적", L"UI/Base_Enemies_Golem.png", 221, 70);
+	IMAGEMANAGER->addDImage("DunGeon_ResultTitle", L"UI/DunGeon_ResultTitle.png", 113, 17);
+	IMAGEMANAGER->addDImage("DunGeon_ResultFootHold", L"UI/Base_GolemDungeon.png", 97, 135);
+	IMAGEMANAGER->addFrameDImage("Portal_Active", L"DunGeon/Portal_Active.png", 240, 21, 6, 1);
+	IMAGEMANAGER->addDImage("DunGeonUI_Door", L"UI/DunGeonUI_Door.png", 60, 57);
+	IMAGEMANAGER->addDImage("Base_Enemies_Golem", L"UI/Base_Enemies_Golem.png", 221, 70);
 	//던전결과 관련
-	_resultTitle.img = IMAGEMANAGER->findDImage("던전결과제목");
+	_resultTitle.img = IMAGEMANAGER->findDImage("DunGeon_ResultTitle");
 	_resultTitle.x = 325;
 	_resultTitle.y = 30;
 	_resultTitle.rc = RectMakeCenter(_resultTitle.x, _resultTitle.y, _resultTitle.img->getWidth(), _resultTitle.img->getHeight());
 	_resultBack.x = 325;
 	_resultBack.y = 280;
 	_resultBack.rc = RectMakeCenter(_resultBack.x, _resultBack.y, 1000, 1000);
-	_resultFootHold.img = IMAGEMANAGER->findDImage("던전결과발판");
+	_resultFootHold.img = IMAGEMANAGER->findDImage("DunGeon_ResultFootHold");
 	_resultFootHold.x = 325;
 	_resultFootHold.y = 60;
 	_resultFootHold.rc = RectMakeCenter(_resultFootHold.x, _resultFootHold.y, _resultFootHold.img->getWidth(), _resultFootHold.img->getHeight());
-	_portalDoorAtive.img = IMAGEMANAGER->findDImage("포탈활성화");
+	_portalDoorAtive.img = IMAGEMANAGER->findDImage("Portal_Active");
 	_portalDoorAtive.x = 325;
 	_portalDoorAtive.y = 86;
 	_portalDoorAtive.count = 0;
 	_portalDoorAtive.currentX = 0;
 	_portalDoorAtive.currentY = 0;
 	_portalDoorAtive.rc = RectMakeCenter(_portalDoorAtive.x, _portalDoorAtive.y, _portalDoorAtive.img->getFrameWidth(), _portalDoorAtive.img->getFrameHeight());
-	_portalDoorOpen.img = IMAGEMANAGER->findDImage("던전UI문");
+	_portalDoorOpen.img = IMAGEMANAGER->findDImage("DunGeonUI_Door");
 	_portalDoorOpen.x = 295;
 	_portalDoorOpen.y = 50;
 	_portalDoorOpen.rc = RectMakeCenter(_portalDoorOpen.x, _portalDoorOpen.y, _portalDoorOpen.img->getFrameWidth(), _portalDoorOpen.img->getFrameHeight());
-	_resultEnemy.img = IMAGEMANAGER->findDImage("던전결과적");
+	_resultEnemy.img = IMAGEMANAGER->findDImage("Base_Enemies_Golem");
 	_resultEnemy.x = 360;
 	_resultEnemy.y = 170;
 	_resultEnemy.rc = RectMakeCenter(_resultEnemy.x, _resultEnemy.y, _resultEnemy.img->getWidth(), _resultEnemy.img->getHeight());
-	_resultEnemy2.img = IMAGEMANAGER->findDImage("던전결과적");
+	_resultEnemy2.img = IMAGEMANAGER->findDImage("Base_Enemies_Golem");
 	_resultEnemy2.x = 360;
 	_resultEnemy2.y = 240;
 	_resultEnemy2.rc = RectMakeCenter(_resultEnemy2.x, _resultEnemy2.y, _resultEnemy2.img->getWidth(), _resultEnemy2.img->getHeight());
-	_kButton.img = IMAGEMANAGER->findDImage("K버튼");
+	_kButton.img = IMAGEMANAGER->findDImage("K_Button");
 	_kButton.x = 280;
 	_kButton.y = 320;
 	_kButton.rc = RectMakeCenter(_kButton.x, _kButton.y, _kButton.img->getWidth(), _kButton.img->getHeight());
 	//인벤토리 이미지
-	_resultInvenBase.img = IMAGEMANAGER->findDImage("인벤토리베이스2");
+	_resultInvenBase.img = IMAGEMANAGER->findDImage("Bag_paperbase");
 	_resultInvenBase.x = 150;
 	_resultInvenBase.y = 200;
 
 
 
 	//배경 원 이미지 
-	_circleGold.img = IMAGEMANAGER->findDImage("원2");
+	_circleGold.img = IMAGEMANAGER->findDImage("Gold_circle");
 	_circleGold.x = 30;
 	_circleGold.y = 30;
-	_circleInven.img = IMAGEMANAGER->findDImage("원2");
+	_circleInven.img = IMAGEMANAGER->findDImage("Gold_circle");
 	_circleInven.x = 600;
 	_circleInven.y = 100;
-	_circleWeapon.img = IMAGEMANAGER->findDImage("원2");
+	_circleWeapon.img = IMAGEMANAGER->findDImage("Gold_circle");
 	_circleWeapon.x = 600;
 	_circleWeapon.y = 50;
-	_swordImg.img = IMAGEMANAGER->findDImage("검이미지");
+	_swordImg.img = IMAGEMANAGER->findDImage("Sword_Image");
 	_swordImg.x = 600;
 	_swordImg.y = 50;
-	_circleHeart.img = IMAGEMANAGER->findDImage("원_하트");
+	_circleHeart.img = IMAGEMANAGER->findDImage("HealthBar_Circle");
 	_circleHeart.x = 70;
 	_circleHeart.y = 25;
 
 	//버튼 이미지
-	_iButton.img = IMAGEMANAGER->findDImage("I버튼");
+	_iButton.img = IMAGEMANAGER->findDImage("I_Button");
 	_iButton.x = 585;
 	_iButton.y = 117;
-	_spaceButton.img = IMAGEMANAGER->findDImage("SPACE버튼");
+	_spaceButton.img = IMAGEMANAGER->findDImage("SPACE_Button");
 	_spaceButton.x = 580;
 	_spaceButton.y = 15;
 
 	//아이콘 이미지
-	_iconBag.img = IMAGEMANAGER->findDImage("가방");
+	_iconBag.img = IMAGEMANAGER->findDImage("Bag");
 	_iconBag.x = 600;
 	_iconBag.y = 100;
-	_iconHeart.img = IMAGEMANAGER->findDImage("하트");
+	_iconHeart.img = IMAGEMANAGER->findDImage("Heart");
 	_iconHeart.x = 70;
 	_iconHeart.y = 25;
-	_iconJump.img = IMAGEMANAGER->findDImage("점프");
+	_iconJump.img = IMAGEMANAGER->findDImage("JumpMotion");
 	_iconJump.x = 570;
 	_iconJump.y = 27;
-	_iconCoin.img = IMAGEMANAGER->findDImage("코인");
+	_iconCoin.img = IMAGEMANAGER->findDImage("Item_Coin");
 	_iconCoin.x = 15;
 	_iconCoin.y = 60;
-	_iconMoenyBag.img = IMAGEMANAGER->findDImage("돈주머니4");
+	_iconMoenyBag.img = IMAGEMANAGER->findDImage("Gold4");
 	_iconMoenyBag.x = 30;
 	_iconMoenyBag.y = 30;
 	//인벤토리 이미지
-	_invenBase.img = IMAGEMANAGER->findDImage("인벤토리베이스");
+	_invenBase.img = IMAGEMANAGER->findDImage("Inventory_base");
 	_invenBase.x = 330;
 	_invenBase.y = 200;
 	_invenCheck = false;
 	////프로그래스바 이미지
-	//_prograssBarBack.img = IMAGEMANAGER->findDImage("체력바back");
+	//_prograssBarBack.img = IMAGEMANAGER->findDImage("HealthBar_Base");
 	//_prograssBarBack.x = 115;
 	//_prograssBarBack.y = 25;
 	//일시정지 이미지
@@ -575,41 +575,41 @@ void UI::setting()
 	_pauseBase.y = 1066 / 2;
 	_pauseBase.rc = RectMakeCenter(_pauseBase.x, _pauseBase.y, WINSIZEX * 7, WINSIZEY * 7);
 	_pauseBase.alpha = 0;
-	_pauseEye.img = IMAGEMANAGER->findDImage("일시정지_눈");
+	_pauseEye.img = IMAGEMANAGER->findDImage("GUI_Pause_Eye");
 	_pauseEye.x = 1300 / 4;
 	_pauseEye.y = 1066 / 4 - 90;
 	_pauseEye.rc = RectMakeCenter(_pauseEye.x, _pauseEye.y, _pauseEye.img->getWidth(), _pauseEye.img->getHeight());
-	_pauseSquareUp.img = IMAGEMANAGER->findDImage("일시정지_네모아래");
+	_pauseSquareUp.img = IMAGEMANAGER->findDImage("GUI_Pause_Triangles_Down");
 	_pauseSquareUp.x = 1300 / 4;
 	_pauseSquareUp.y = 1066 / 4 - 70;
 	_pauseSquareUp.rc = RectMakeCenter(_pauseSquareUp.x, _pauseSquareUp.y, _pauseSquareUp.img->getWidth(), _pauseSquareUp.img->getHeight());
-	_pauseSquareDown.img = IMAGEMANAGER->findDImage("일시정지_네모위");
+	_pauseSquareDown.img = IMAGEMANAGER->findDImage("GUI_Pause_Triangles_Up");
 	_pauseSquareDown.x = 1300 / 4;
 	_pauseSquareDown.y = 1066 / 4 - 60;
 	_pauseSquareDown.rc = RectMakeCenter(_pauseSquareDown.x, _pauseSquareDown.y, _pauseSquareDown.img->getWidth(), _pauseSquareDown.img->getHeight());
-	_pauseTailDown.img = IMAGEMANAGER->findDImage("일시정지_꼬리아래");
+	_pauseTailDown.img = IMAGEMANAGER->findDImage("GUI_Pause_Tail_Down");
 	_pauseTailDown.x = 1300 / 4;
 	_pauseTailDown.y = 1066 / 4 - 30;
 	_pauseTailDown.rc = RectMakeCenter(_pauseTailDown.x, _pauseTailDown.y, _pauseTailDown.img->getWidth(), _pauseTailDown.img->getHeight());
-	_pauseHotdogLeft.img = IMAGEMANAGER->findDImage("일시정지_핫도그왼쪽");
+	_pauseHotdogLeft.img = IMAGEMANAGER->findDImage("GUI_Pause_Arm_Left");
 	_pauseHotdogLeft.x = 1300 / 4 - 100;
 	_pauseHotdogLeft.y = 1066 / 4 - 45;
 	_pauseHotdogLeft.rc = RectMakeCenter(_pauseHotdogLeft.x, _pauseHotdogLeft.y, _pauseHotdogLeft.img->getWidth(), _pauseHotdogLeft.img->getHeight());
-	_pauseHotdogRight.img = IMAGEMANAGER->findDImage("일시정지_핫도그오른쪽");
+	_pauseHotdogRight.img = IMAGEMANAGER->findDImage("GUI_Pause_Arm_Right");
 	_pauseHotdogRight.x = 1300 / 4 + 100;
 	_pauseHotdogRight.y = 1066 / 4 - 45;
 	_pauseHotdogRight.rc = RectMakeCenter(_pauseHotdogRight.x, _pauseHotdogRight.y, _pauseHotdogRight.img->getWidth(), _pauseHotdogRight.img->getHeight());
-	_pauseSelectLeft.img = IMAGEMANAGER->findDImage("일시정지_메뉴선택아이콘왼쪽");
+	_pauseSelectLeft.img = IMAGEMANAGER->findDImage("MenuChoiceIcon_Left");
 	_pauseSelectLeft.x = 1300 / 4 - 100;
 	_pauseSelectLeft.y = 1066 / 4 - 95;
 	_pauseSelectLeft.rc = RectMakeCenter(_pauseSelectLeft.x, _pauseSelectLeft.y, _pauseSelectLeft.img->getWidth(), _pauseSelectLeft.img->getHeight());
 
-	_pauseSelectRight.img = IMAGEMANAGER->findDImage("일시정지_메뉴선택아이콘오른쪽");
+	_pauseSelectRight.img = IMAGEMANAGER->findDImage("MenuChoiceIcon_Right");
 	_pauseSelectRight.x = 1300 / 4 + 100;
 	_pauseSelectRight.y = 1066 / 4 - 95;
 	_pauseSelectRight.rc = RectMakeCenter(_pauseSelectRight.x, _pauseSelectRight.y, _pauseSelectRight.img->getWidth(), _pauseSelectRight.img->getHeight());
 
-	_invenWill.img = IMAGEMANAGER->findDImage("인벤토리윌");
+	_invenWill.img = IMAGEMANAGER->findDImage("Inventory_Will");
 	_invenWill.x = _invenBase.x + 130;
 	_invenWill.y = _invenBase.y;
 	_invenWill.count = 0;
@@ -658,13 +658,13 @@ void UI::pause()
 		//일시정지 창 메뉴 선택 관리
 		if (KEYMANAGER->isOnceKeyDown('S'))
 		{
-			SOUNDMANAGER->play("메뉴선택");
+			SOUNDMANAGER->play("MenuChoice");
 			_pauseMenuSelect++;
 			if (_pauseMenuSelect >= 2) _pauseMenuSelect = 2;
 		}
 		if (KEYMANAGER->isOnceKeyDown('W'))
 		{
-			SOUNDMANAGER->play("메뉴선택");
+			SOUNDMANAGER->play("MenuChoice");
 			_pauseMenuSelect--;
 			if (_pauseMenuSelect <= 0) _pauseMenuSelect = 0;
 		}
@@ -701,7 +701,7 @@ void UI::pause()
 				INIDATA->addData("village", "playerY", NULL);
 				INIDATA->addData("deongeonChoice", "playerX", NULL);
 				INIDATA->addData("deongeonChoice", "playerY", NULL);
-				INIDATA->iniSave("플레이어좌표");
+				INIDATA->iniSave("PlayerCoordinate");
 				exit(0);
 			}
 			break;
@@ -809,14 +809,14 @@ void UI::cursorUpdate()
 
 	if (KEYMANAGER->isOnceKeyDown('A'))
 	{
-		SOUNDMANAGER->play("메뉴선택");
+		SOUNDMANAGER->play("MenuChoice");
 		if (_curIndex % 5 == 0) _curIndex = _curIndex;
 		else _curIndex--;
 
 	}
 	if (KEYMANAGER->isOnceKeyDown('D'))
 	{
-		SOUNDMANAGER->play("메뉴선택");
+		SOUNDMANAGER->play("MenuChoice");
 		if (_curIndex % 5 == 4) _curIndex = _curIndex;
 		else _curIndex++;
 		if (_curIndex >= 20) _curIndex = 20;
@@ -824,14 +824,14 @@ void UI::cursorUpdate()
 	}
 	if (KEYMANAGER->isOnceKeyDown('W'))
 	{
-		SOUNDMANAGER->play("메뉴선택");
+		SOUNDMANAGER->play("MenuChoice");
 		if (_curIndex / 5 == 0) _curIndex = _curIndex;
 		else _curIndex -= 5;
 
 	}
 	if (KEYMANAGER->isOnceKeyDown('S'))
 	{
-		SOUNDMANAGER->play("메뉴선택");
+		SOUNDMANAGER->play("MenuChoice");
 		if (_curIndex / 5 == 4) _curIndex = _curIndex;
 		else _curIndex += 5;
 		if (_curIndex >= 20) _curIndex = 20;
@@ -885,7 +885,7 @@ void UI::huntEnemy(int huntNum, int miniboss)
 		for (int i = 0; i < huntNum; ++i)
 		{
 			tagUIobject huntEnemy;
-			huntEnemy.img = IMAGEMANAGER->findDImage("슬라임획득");
+			huntEnemy.img = IMAGEMANAGER->findDImage("Slime_Hunt");
 			huntEnemy.x = 0;
 			huntEnemy.y = 0;
 			huntEnemy.count = 0;
@@ -897,7 +897,7 @@ void UI::huntEnemy(int huntNum, int miniboss)
 		for (int i = 0; i < miniboss; ++i)
 		{
 			tagUIobject huntEnemy;
-			huntEnemy.img = IMAGEMANAGER->findDImage("준보스획득");
+			huntEnemy.img = IMAGEMANAGER->findDImage("MiniBoss_HunT");
 			huntEnemy.x = 0;
 			huntEnemy.y = 0;
 			huntEnemy.count = 0;
@@ -951,8 +951,8 @@ void UI::itemGet(string name)
 
 				char cha[64];
 				cha[63] = _itoa_s(_vitemBase[i]->getItem().itemMax, cha, sizeof(cha), 10);
-				INIDATA->addData(name.c_str(), "개수", cha);
-				INIDATA->iniSave("아이템정보");
+				INIDATA->addData(name.c_str(), "Item_Count", cha);
+				INIDATA->iniSave("Item_info");
 
 
 			}
@@ -973,8 +973,8 @@ void UI::itemGet(string name)
 				_vitemBase[i]->setItemItemMax(_vitemBase[i]->getItem().itemMax + 1);
 				char cha[64];
 				cha[63] = _itoa_s(_vitemBase[i]->getItem().itemMax, cha, sizeof(cha), 10);
-				INIDATA->addData(name.c_str(), "개수", cha);
-				INIDATA->iniSave("아이템정보");
+				INIDATA->addData(name.c_str(), "Item_Count", cha);
+				INIDATA->iniSave("Item_info");
 				break;
 			}
 			else if (_vitemBase[i]->getItem().name != name)
@@ -999,8 +999,8 @@ void UI::itemGet(string name)
 
 					char cha[64];
 					cha[63] = _itoa_s(_vitemBase[i]->getItem().itemMax, cha, sizeof(cha), 10);
-					INIDATA->addData(name.c_str(), "개수", cha);
-					INIDATA->iniSave("아이템정보");
+					INIDATA->addData(name.c_str(), "Item_Count", cha);
+					INIDATA->iniSave("Item_info");
 				}
 			}
 		}
@@ -1012,18 +1012,18 @@ void UI::itemGet(string name)
 
 void UI::itemSet()
 {
-	_money = INIDATA->loadDataInterger("아이템정보", "보유재화", "돈");
+	_money = INIDATA->loadDataInterger("Item_info", "My_Money", "Money");
 	//아이템 별 개수를 불러온다.
-	itemCount[0] = INIDATA->loadDataInterger("아이템정보", "설계도", "개수");
-	itemCount[1] = INIDATA->loadDataInterger("아이템정보", "부러진검", "개수");
-	itemCount[2] = INIDATA->loadDataInterger("아이템정보", "크리스탈", "개수");
-	itemCount[3] = INIDATA->loadDataInterger("아이템정보", "골렘코어", "개수");
-	itemCount[4] = INIDATA->loadDataInterger("아이템정보", "역사서", "개수");
-	itemCount[5] = INIDATA->loadDataInterger("아이템정보", "생명수", "개수");
-	itemCount[6] = INIDATA->loadDataInterger("아이템정보", "노트", "개수");
-	itemCount[7] = INIDATA->loadDataInterger("아이템정보", "금속", "개수");
-	itemCount[8] = INIDATA->loadDataInterger("아이템정보", "빨대", "개수");
-	itemCount[9] = INIDATA->loadDataInterger("아이템정보", "전선", "개수");
+	itemCount[0] = INIDATA->loadDataInterger("Item_info", "blueprint", "Item_Count");
+	itemCount[1] = INIDATA->loadDataInterger("Item_info", "Break_Sword", "Item_Count");
+	itemCount[2] = INIDATA->loadDataInterger("Item_info", "Crystal", "Item_Count");
+	itemCount[3] = INIDATA->loadDataInterger("Item_info", "Golem_core", "Item_Count");
+	itemCount[4] = INIDATA->loadDataInterger("Item_info", "History_Book", "Item_Count");
+	itemCount[5] = INIDATA->loadDataInterger("Item_info", "Life_Water", "Item_Count");
+	itemCount[6] = INIDATA->loadDataInterger("Item_info", "Note", "Item_Count");
+	itemCount[7] = INIDATA->loadDataInterger("Item_info", "Steel", "Item_Count");
+	itemCount[8] = INIDATA->loadDataInterger("Item_info", "Straw", "Item_Count");
+	itemCount[9] = INIDATA->loadDataInterger("Item_info", "Electronic_Line", "Item_Count");
 
 
 	for (int i = 0; i < 10; ++i)
@@ -1035,14 +1035,14 @@ void UI::itemSet()
 			int itemInfo = i;
 			char changeInt[64];
 			changeInt[63] = _itoa_s(itemInfo, changeInt, sizeof(changeInt), 10);
-			_vitemBase.push_back(_itemManager->getItem(INIDATA->loadDataString2("아이템정보", "아이템이름", changeInt)));
+			_vitemBase.push_back(_itemManager->getItem(INIDATA->loadDataString2("Item_info", "Item_Name", changeInt)));
 
 			//vector의 size를 확인하고 아이템별 개수를 넣어준다.
 			for (int j = 0; j < _vitemBase.size(); ++j)
 			{
-				if (_vitemBase[j]->getItem().name != INIDATA->loadDataString2("아이템정보", "아이템이름", changeInt)) continue;
+				if (_vitemBase[j]->getItem().name != INIDATA->loadDataString2("Item_info", "Item_Name", changeInt)) continue;
 				_vitemBase[j]->setItemItemMax(itemCount[i]);
-				_vitemBase[j]->setItemName(INIDATA->loadDataString2("아이템정보", "아이템이름", changeInt));
+				_vitemBase[j]->setItemName(INIDATA->loadDataString2("Item_info", "Item_Name", changeInt));
 			}
 		}
 	}

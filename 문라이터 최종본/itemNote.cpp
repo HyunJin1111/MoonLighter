@@ -11,10 +11,10 @@ itemNote::~itemNote()
 
 HRESULT itemNote::init()
 {
-	IMAGEMANAGER->addDImage("note", L"아이템/Item_NajaNotes.png", 32, 32);
+	IMAGEMANAGER->addDImage("note", L"ITEM/Item_NajaNotes.png", 32, 32);
 
-	_item.name = "노트";
-	_item.infomation = "노트";
+	_item.name = "Note";
+	_item.infomation = "Note";
 	_item.itemMax = 0;
 	_item.img = IMAGEMANAGER->findDImage("note");
 	

@@ -27,7 +27,7 @@ public:
 	static float FixFloat(float f);
 	//두 점사이의 거리 반환
 	static float GetDistance(const float& startX, const float& startY, const float& endX, const float& endY);
-	//두 점 사이의 각을 반환
+	//두  사이의 각을 반환
 	static float GetAngle(const float& x1, const float& y1, const float& x2, const float& y2);
 
 	static float Floor(const float& f, const int& cipher);

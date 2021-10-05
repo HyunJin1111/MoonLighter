@@ -14,7 +14,7 @@ bossState * bossAttack1Reverse::inputHandle(boss * boss)
 
 void bossAttack1Reverse::enter(boss * boss)
 {
-	boss->setBossImg(IMAGEMANAGER->findDImage("º¸½º_attack1_re"));
+	boss->setBossImg(IMAGEMANAGER->findDImage("boss_launch2"));
 	boss->setBossCurrentFrameX(0);
 	boss->setBossCurrentFrameY(0);
 	_bossCount = 0;

@@ -15,6 +15,11 @@ using namespace FMOD;
 class soundManager : public singletonBase<soundManager>
 {
 private:
+	soundManager();
+	~soundManager();
+
+	friend singletonBase;
+
 	typedef map<string, Sound**>			arrSounds;
 	typedef map<string, Sound**>::iterator	arrSoundsIter;
 
@@ -30,8 +35,7 @@ private:
 
 
 public:
-	soundManager();
-	~soundManager();
+	
 
 	HRESULT init();
 	void release();

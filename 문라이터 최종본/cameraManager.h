@@ -14,6 +14,10 @@ enum CAMERAFADE {
 class cameraManager : public singletonBase<cameraManager>
 {
 private:
+	cameraManager();
+	~cameraManager();
+
+	friend singletonBase;
 	//카메라가 비추는 화면 크기(WINSIZEX, WINSIZEY)와 좌표(left, right, top, bottom)
 	RECT _screen;
 	RECT _divScreen;
@@ -34,8 +38,7 @@ private:
 	bool _onMove;	//카메라 올리고 내리고 판별
 
 public:
-	cameraManager();
-	~cameraManager();
+	
 
 	HRESULT init(int width, int height);
 	void release();

@@ -33,70 +33,70 @@ void itemManager::render()
 
 itemBase* itemManager::getItem(string name)
 {
-	if (name == "생명수") 
+	if (name == "Life_Water") 
 	{
 		itemLifeWater* _itemLifeWater = new itemLifeWater;
 		_itemLifeWater->init();
 
 		return _itemLifeWater;
 	}
-	if (name == "골렘코어") 
+	if (name == "Golem_core") 
 	{
 		 itemGolemCore* _itemGolemcore = new itemGolemCore;
 		 _itemGolemcore->init();
 
 		return _itemGolemcore;
 	}
-	if (name == "설계도") 
+	if (name == "blueprint") 
 	{
 		itemBluePrint* _itemBluePrint = new itemBluePrint;
 		 _itemBluePrint->init();
 
 		return _itemBluePrint;
 	}
-	if (name == "부러진검") 
+	if (name == "Break_Sword") 
 	{
 		 itemBrokenSword* _itemBrokenSword = new itemBrokenSword;
 		 _itemBrokenSword->init();
 
 		return _itemBrokenSword;
 	}
-	if (name == "크리스탈") 
+	if (name == "Crystal") 
 	{
 		 itemCrystal* _itemCrystal = new itemCrystal;
 		 _itemCrystal->init();
 
 		return _itemCrystal;
 	}
-	if (name == "역사서") 
+	if (name == "History_Book") 
 	{
 		 itemHistoryBook* _itemHistoryBook = new itemHistoryBook;
 		 _itemHistoryBook->init();
 
 		return _itemHistoryBook;
 	}
-	if (name == "노트") 
+	if (name == "Note") 
 	{
 		 itemNote* _itemNote = new itemNote;
 		 _itemNote->init();
 
 		return _itemNote;
 	}
-	if (name == "금속") 
+	if (name == "Steel") 
 	{
 		 itemSteel* _itemSteel = new itemSteel;
 		 _itemSteel->init();
 
 		return _itemSteel;
 	}
-	if (name == "빨대") 
+	if (name == "Straw") 
 	{
 		 itemStraw* _itemStraw = new itemStraw;
 		 _itemStraw->init();
 
 		return _itemStraw;
 	}
-	if (name == "전선") 
+	if (name == "Electronic_Line") 
 	{
 		 itemWire* _itemWire = new itemWire;
 		 _itemWire->init();

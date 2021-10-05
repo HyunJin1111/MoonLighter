@@ -8,6 +8,10 @@ class Particle;
 class ParticleManeager : public singletonBase<ParticleManeager>
 {
 private:
+	ParticleManeager();
+	~ParticleManeager();
+	friend singletonBase;
+
 	//»ý»ê
 	typedef vector<Particle*>								arrParticles;
 	typedef vector<Particle*>::iterator						iterParticles;
@@ -22,8 +26,7 @@ private:
 	arrTotalParticle _vTotalParticle;
 
 public:
-	ParticleManeager();
-	~ParticleManeager();
+	
 
 	HRESULT init();
 	void release();

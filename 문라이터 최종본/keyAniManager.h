@@ -8,6 +8,10 @@ class animation;
 class keyAniManager : public singletonBase<keyAniManager>
 {
 private:
+	keyAniManager();
+	~keyAniManager();
+	friend singletonBase;
+
 	typedef map<string, animation*>				arrAnimation;
 	typedef map<string, animation*>::iterator	iterAnimation;
 
@@ -15,8 +19,7 @@ private:
 	arrAnimation _mTotalAnimation;
 
 public:
-	keyAniManager();
-	~keyAniManager();
+
 
 	HRESULT init();
 	void release();

@@ -22,7 +22,7 @@ bossState * bossIdle::inputHandle(boss * boss)
 
 void bossIdle::enter(boss * boss)
 {
-	boss->setBossImg(IMAGEMANAGER->findDImage("º¸½º_idle"));
+	boss->setBossImg(IMAGEMANAGER->findDImage("boss_idle"));
 	boss->setBossCurrentFrameX(0);
 	boss->setBossCurrentFrameY(0);
 	_bossCount = 0;

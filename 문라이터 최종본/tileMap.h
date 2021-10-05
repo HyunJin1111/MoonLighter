@@ -1,18 +1,18 @@
 #pragma once
 #include "gameNode.h"
 
-//타일 사이즈
+//Tile 사이즈
 #define TILESIZE 26
-//타일 개수
+//Tile Item_Count
 #define TILEX 50
 #define TILEY 41
-//던전타일 개수
+//던전타일 Item_Count
 #define DUNGEONTILEX 19
 #define DUNGEONTILEY 11
-//타일 총 사이즈
+//Tile 총 사이즈
 #define TILESIZEX TILESIZE * TILEX
 #define TILESIZEY TILESIZE * TILEY
-//샘플타일 개수
+//샘플타일 Item_Count
 #define SAMPLETILEX 20
 #define SAMPLETILEY 10
 //버튼
@@ -42,7 +42,7 @@ enum IMAGEAT
 	FRAME_IMAGE
 };
 
-//타일 정보 담은 구조체
+//Tile 정보 담은 구조체
 struct tagTile
 {
 	TERRAIN		terrain;
@@ -69,7 +69,7 @@ struct tagSampleTile
 	int			pageTerrain, pageObject;
 };
 
-//현재 타일 받아올 구조체
+//현재 Tile 받아올 구조체
 struct tagCurrentTile
 {
 	TERRAIN		terrain;

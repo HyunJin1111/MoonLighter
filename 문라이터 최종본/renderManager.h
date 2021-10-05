@@ -12,10 +12,14 @@ struct tagImageRender
 class renderManager : public singletonBase<renderManager>
 {
 private:
-	vector<tagImageRender> _vImage;
-public:
 	renderManager();
 	~renderManager();
+
+	friend singletonBase;
+
+	vector<tagImageRender> _vImage;
+public:
+	
 
 	HRESULT init();
 	void release();

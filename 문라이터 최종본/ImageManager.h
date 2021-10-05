@@ -7,6 +7,9 @@
 class imageManager : public singletonBase<imageManager>
 {
 private:
+	imageManager();
+	~imageManager();
+	friend singletonBase;
 	//first - string
 	//second - image*
 	typedef map<string, image*>				mapImageList;
@@ -20,8 +23,7 @@ private:
 	d2dImageList _dImageList;
 
 public:
-	imageManager();
-	~imageManager();
+	
 
 	HRESULT init();
 	void release();

@@ -18,11 +18,11 @@ private:
 	aStarTile* _currentTile;
 	aStarTile* _saveTile;
 
-	//전체 타일 담을 벡터
+	//전체 Tile 담을 벡터
 	vector<aStarTile*>			_vTotalList;
 	vector<aStarTile*>::iterator _viTotalList;
 
-	//갈 수 있는 타일 담을 벡터
+	//갈 수 있는 Tile 담을 벡터
 	vector<aStarTile*>			_vOpenList;
 	vector<aStarTile*>::iterator _viOpenList;
 
@@ -54,7 +54,7 @@ public:
 	void update(int diffrentX, int differntY, RECT player, RECT enemyRc);
 	void render();
 
-	//타일 셋팅 함수
+	//Tile 셋팅 함수
 	void setTiles(int enemyX, int enemyY, RECT player, int diffrentX, int differntY);
 	//갈 수 있는 길을 찾아 담아줄 함수
 	vector<aStarTile*> addOpenList(aStarTile* currentTile);

@@ -16,7 +16,7 @@ private:
 
 	bool _isOpen;//갈수있는 타일인지 유무
 
-	aStarTile* _parentNode; //제일 상위 타일 (계속 갱신되는 타일)
+	aStarTile* _parentNode; //제일 상위 Tile (계속 갱신되는 Tile)
 
 	string _attribute;
 

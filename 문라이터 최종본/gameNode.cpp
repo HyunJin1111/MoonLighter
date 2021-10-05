@@ -88,7 +88,7 @@ void gameNode::cursorOnWindow()
 
 	POINT pt1, pt2;
 
-	//윈도우 LeftTop, RightTop점 좌표
+	//윈도우 LeftTop, RightTop 좌표
 	pt1.x = rc.left;
 	pt1.y = rc.top;
 	pt2.x = rc.right;

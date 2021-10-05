@@ -88,7 +88,7 @@ void miniBoss::update(float distance, int diffrentX, int diffrentY, RECT player)
 				_miniBoss.state = MINIBOSS_SWORD;
 				break;
 			}
-			SOUNDMANAGER->play("미니보스공격");
+			SOUNDMANAGER->play("MiniBossAttackSound");
 			_miniBoss.currentFrameX = 0;
 			_miniBoss.rand = 0;
 			_miniBoss.changeState = true;
@@ -123,22 +123,22 @@ void miniBoss::hpRender()
 
 void miniBoss::setMiniBoss()
 {
-	IMAGEMANAGER->addFrameDImage("준보스idle_down", L"준보스/준보스_idle_down.png", 680, 108, 8, 1);
-	IMAGEMANAGER->addFrameDImage("준보스idle_up", L"준보스/준보스_idle_up.png", 672, 109, 8, 1);
-	IMAGEMANAGER->addFrameDImage("준보스idle_left", L"준보스/준보스_idle_left.png", 616, 111, 8, 1);
-	IMAGEMANAGER->addFrameDImage("준보스idle_right", L"준보스/준보스_idle_right.png", 616, 111, 8, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_idle_down", L"MiniBoss/MiniBoss_idle_down.png", 680, 108, 8, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_idle_up", L"MiniBoss/MiniBoss_idle_up.png", 672, 109, 8, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_idle_left", L"MiniBoss/MiniBoss_idle_left.png", 616, 111, 8, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_idle_right", L"MiniBoss/MiniBoss_idle_right.png", 616, 111, 8, 1);
 
-	IMAGEMANAGER->addFrameDImage("준보스smash_down", L"준보스/준보스_smash_down.png", 1455, 200, 15, 1);
-	IMAGEMANAGER->addFrameDImage("준보스smash_up", L"준보스/준보스_smash_up.png", 1479, 200, 15, 1);
-	IMAGEMANAGER->addFrameDImage("준보스smash_left", L"준보스/준보스_smash_left.png", 3600, 200, 15, 1);
-	IMAGEMANAGER->addFrameDImage("준보스smash_right", L"준보스/준보스_smash_right.png", 3600, 200, 15, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_smash_down", L"MiniBoss/MiniBoss_smash_down.png", 1455, 200, 15, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_smash_up", L"MiniBoss/MiniBoss_smash_up.png", 1479, 200, 15, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_smash_left", L"MiniBoss/MiniBoss_smash_left.png", 3600, 200, 15, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_smash_right", L"MiniBoss/MiniBoss_smash_right.png", 3600, 200, 15, 1);
 
-	IMAGEMANAGER->addFrameDImage("준보스sword_down", L"준보스/준보스_sword_down.png", 3600, 200, 15, 1);
-	IMAGEMANAGER->addFrameDImage("준보스sword_up", L"준보스/준보스_sword_up.png", 3600, 200, 15, 1);
-	IMAGEMANAGER->addFrameDImage("준보스sword_left", L"준보스/준보스_sword_left.png", 3600, 200, 15, 1);
-	IMAGEMANAGER->addFrameDImage("준보스sword_right", L"준보스/준보스_sword_right.png", 3600, 200, 15, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_sword_down", L"MiniBoss/MiniBoss_sword_down.png", 3600, 200, 15, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_sword_up", L"MiniBoss/MiniBoss_sword_up.png", 3600, 200, 15, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_sword_left", L"MiniBoss/MiniBoss_sword_left.png", 3600, 200, 15, 1);
+	IMAGEMANAGER->addFrameDImage("MiniBoss_sword_right", L"MiniBoss/MiniBoss_sword_right.png", 3600, 200, 15, 1);
 
-	_miniBoss.img = IMAGEMANAGER->findDImage("준보스idle_down");
+	_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_idle_down");
 	_miniBoss.rc = RectMakeCenter(_miniBoss.x, _miniBoss.y, _miniBoss.img->getFrameWidth(), _miniBoss.img->getFrameHeight());
 	_miniBoss.hitRc = RectMakeCenter(_miniBoss.x, _miniBoss.y, 100, 100);
 	_miniBoss.count = _miniBoss.rand = 0;
@@ -167,16 +167,16 @@ void miniBoss::miniBossState()
 		switch (_miniBoss.direction)
 		{
 		case MINIBOSS_RIGHT:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스idle_right");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_idle_right");
 			break;
 		case MINIBOSS_UP:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스idle_up");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_idle_up");
 			break;
 		case MINIBOSS_LEFT:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스idle_left");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_idle_left");
 			break;
 		case MINIBOSS_DOWN:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스idle_down");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_idle_down");
 			break;
 		}
 		break;
@@ -188,16 +188,16 @@ void miniBoss::miniBossState()
 		switch (_miniBoss.direction)
 		{
 		case MINIBOSS_RIGHT:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스idle_right");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_idle_right");
 			break;
 		case MINIBOSS_UP:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스idle_up");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_idle_up");
 			break;
 		case MINIBOSS_LEFT:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스idle_left");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_idle_left");
 			break;
 		case MINIBOSS_DOWN:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스idle_down");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_idle_down");
 			break;
 		}
 		break;
@@ -207,23 +207,23 @@ void miniBoss::miniBossState()
 		{
 
 		case MINIBOSS_RIGHT:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스smash_right");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_smash_right");
 			if (_miniBoss.currentFrameX == 4)
 				_miniBoss.attackRc = RectMakeCenter(_miniBoss.x + 50, _miniBoss.y, 70, 70);
 			break;
 		case MINIBOSS_UP:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스smash_up");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_smash_up");
 			if (_miniBoss.currentFrameX == 4)
 				_miniBoss.attackRc = RectMakeCenter(_miniBoss.x, _miniBoss.y - 50, 70, 70);
 			break;
 		case MINIBOSS_LEFT:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스smash_left");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_smash_left");
 
 			if (_miniBoss.currentFrameX == 4)
 				_miniBoss.attackRc = RectMakeCenter(_miniBoss.x - 50, _miniBoss.y, 70, 70);
 			break;
 		case MINIBOSS_DOWN:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스smash_down");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_smash_down");
 			if (_miniBoss.currentFrameX == 4)
 				_miniBoss.attackRc = RectMakeCenter(_miniBoss.x, _miniBoss.y + 50, 70, 70);
 			break;
@@ -235,23 +235,23 @@ void miniBoss::miniBossState()
 		{
 
 		case MINIBOSS_RIGHT:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스sword_right");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_sword_right");
 			if (_miniBoss.currentFrameX == 4)
 				_miniBoss.attack2Rc = RectMakeCenter(_miniBoss.x + 50, _miniBoss.y, 80, 100);
 			break;
 		case MINIBOSS_UP:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스sword_up");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_sword_up");
 			if (_miniBoss.currentFrameX == 4)
 				_miniBoss.attack2Rc = RectMakeCenter(_miniBoss.x, _miniBoss.y - 50, 100, 80);
 			break;
 		case MINIBOSS_LEFT:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스sword_left");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_sword_left");
 
 			if (_miniBoss.currentFrameX == 4)
 				_miniBoss.attack2Rc = RectMakeCenter(_miniBoss.x - 50, _miniBoss.y, 80, 100);
 			break;
 		case MINIBOSS_DOWN:
-			_miniBoss.img = IMAGEMANAGER->findDImage("준보스sword_down");
+			_miniBoss.img = IMAGEMANAGER->findDImage("MiniBoss_sword_down");
 			if (_miniBoss.currentFrameX == 4)
 				_miniBoss.attack2Rc = RectMakeCenter(_miniBoss.x, _miniBoss.y + 50, 100, 80);
 			break;

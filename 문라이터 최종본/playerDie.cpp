@@ -10,7 +10,7 @@ void playerDie::enter(player * player)
 {
 	player->setPlayerCurrentFrameX(0);
 
-	player->setPlayerImg(IMAGEMANAGER->findDImage("ÀªÁ×À½"));
+	player->setPlayerImg(IMAGEMANAGER->findDImage("will_die"));
 	
 	_playerCount = 0;
 }

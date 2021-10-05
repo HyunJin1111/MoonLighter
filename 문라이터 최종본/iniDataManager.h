@@ -12,6 +12,10 @@ struct tagIniData
 class iniDataManager : public singletonBase<iniDataManager>
 {
 private:
+	iniDataManager();
+	~iniDataManager();
+	friend singletonBase;
+
 	typedef vector<tagIniData>				arrIniData;
 	typedef vector<tagIniData>::iterator	arrIniDataIter;
 
@@ -26,8 +30,7 @@ private:
 	string titleName;
 
 public:
-	iniDataManager();
-	~iniDataManager();
+
 
 	HRESULT init();
 	void release();

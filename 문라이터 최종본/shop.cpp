@@ -13,7 +13,7 @@ shop::~shop()
 
 HRESULT shop::init()
 {
-	SOUNDMANAGER->play("상점배경음악");
+	SOUNDMANAGER->play("ShopBackgroundMusic");
 	_shopTileMap = new shopTileMap;
 	_shopTileMap->init();
 	_player = new player;
@@ -21,8 +21,8 @@ HRESULT shop::init()
 	_ui = new UI;
 	_ui->init();
 	//플레이어 좌표 저장
-	_player->setPlayerX(atoi(INIDATA->loadDataString("플레이어좌표", "shop", "playerX")));
-	_player->setPlayerY(atoi(INIDATA->loadDataString("플레이어좌표", "shop", "playerY")));
+	_player->setPlayerX(atoi(INIDATA->loadDataString("PlayerCoordinate", "shop", "playerX")));
+	_player->setPlayerY(atoi(INIDATA->loadDataString("PlayerCoordinate", "shop", "playerY")));
 	if (_player->getPlayer().x == NULL) _player->setPlayerX(620);
 	if (_player->getPlayer().y != NULL) _isWakeUp = true;
 	else if (_player->getPlayer().y == NULL)
@@ -30,14 +30,14 @@ HRESULT shop::init()
 		_isWakeUp = false;
 		_player->setPlayerY(395);
 	}
-	IMAGEMANAGER->addDImage("상점_front2", L"상점/상점_front2.png", 54, 48);
-	IMAGEMANAGER->addFrameDImage("윌기상", L"윌/윌기상.png", 3538, 59, 58, 1);
-	IMAGEMANAGER->addDImage("shop베이스_short", L"UI/대화창 배경.png", 80, 25);
+	IMAGEMANAGER->addDImage("Shop_front2", L"Shop/Shop_front2.png", 54, 48);
+	IMAGEMANAGER->addFrameDImage("Will_WakeUp", L"Will/Will_WakeUp.png", 3538, 59, 58, 1);
+	IMAGEMANAGER->addDImage("Shop_Base_Short", L"UI/TalkBackground.png", 80, 25);
 	//상점이미지 앞
-	_shopFront.img = IMAGEMANAGER->findDImage("상점_front2");
+	_shopFront.img = IMAGEMANAGER->findDImage("Shop_front2");
 	//대화창 이미지
-	_talkBaseShort.img = IMAGEMANAGER->findDImage("shop베이스_short");
-	_talkButton = IMAGEMANAGER->findDImage("J버튼");
+	_talkBaseShort.img = IMAGEMANAGER->findDImage("Shop_Base_Short");
+	_talkButton = IMAGEMANAGER->findDImage("J_Button");
 	_talkBaseShort.isTalk = false;
 
 
@@ -65,28 +65,28 @@ HRESULT shop::init()
 				switch (_shopTileMap->getTile(i).pageObject)
 				{
 				case 0:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을타일프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("VilageTileFrame");
 					break;
 				case 1:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을오브젝트1_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("VilageObject1_Frame");
 					break;
 				case 2:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을_집_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("Vilage_House_Frame");
 					break;
 				case 3:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을_집2_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("Vilage_House2_Frame");
 					break;
 				case 4:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("마을_집3_프레임");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("Vilage_House3_Frame");
 					break;
 				case 5:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("던전선택");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("DunGeonChoice");
 					break;
 				case 6:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("상점타일1");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("ShopTile1");
 					break;
 				case 7:
-					_vTiles[i].img = IMAGEMANAGER->findDImage("상점타일2");
+					_vTiles[i].img = IMAGEMANAGER->findDImage("ShopTile2");
 					break;
 				}
 
@@ -103,7 +103,7 @@ HRESULT shop::init()
 		}
 	}
 
-	_playerWakeUp.img = IMAGEMANAGER->findDImage("윌기상");
+	_playerWakeUp.img = IMAGEMANAGER->findDImage("Will_WakeUp");
 	_playerWakeUp.x = 611;
 	_playerWakeUp.y = 382;
 	_playerWakeUp.count = 0;
@@ -120,8 +120,8 @@ bool compare2(tagTile * a, tagTile * b)
 void shop::release()
 {
 	_vZorder.clear();
-	SOUNDMANAGER->stop("상점배경음악");
-	SOUNDMANAGER->stop("윌발걸음");
+	SOUNDMANAGER->stop("ShopBackgroundMusic");
+	SOUNDMANAGER->stop("WillStep");
 
 }
 
@@ -152,7 +152,7 @@ void shop::update()
 				_itoa_s(_player->getPlayer().y - 20, _playerYchar, sizeof(&_playerYchar), 10);
 				INIDATA->addData("shop", "playerX", _playerXchar);
 				INIDATA->addData("shop", "playerY", _playerYchar);
-				INIDATA->iniSave("플레이어좌표");
+				INIDATA->iniSave("PlayerCoordinate");
 				SCENEMANAGER->changeScene("village");
 			}
 

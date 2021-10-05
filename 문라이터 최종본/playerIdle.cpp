@@ -44,28 +44,28 @@ void playerIdle::enter(player * player)
 	switch (player->getPlayer().direction)
 	{
 	case PLAYER_DOWN:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª±âº»¾Æ·¡"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_idle_down"));
 		break;
 	case PLAYER_UP:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª±âº»À§"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_idle_up"));
 		break;
 	case PLAYER_LEFT:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª±âº»¿ÞÂÊ"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_idle_left"));
 		break;
 	case PLAYER_RIGHT:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª±âº»¿À¸¥ÂÊ"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_idle_right"));
 		break;
 	case PLAYER_LEFTUP:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª±âº»À§"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_idle_up"));
 		break;
 	case PLAYER_RIGHTUP:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª±âº»À§"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_idle_up"));
 		break;
 	case PLAYER_LEFTDOWN:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª±âº»¾Æ·¡"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_idle_down"));
 		break;
 	case PLAYER_RIGHTDOWN:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª±âº»¾Æ·¡"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_idle_down"));
 		break;
 	}
 	_playerCount = 0;

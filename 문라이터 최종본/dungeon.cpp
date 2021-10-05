@@ -12,41 +12,41 @@ dungeon::~dungeon()
 
 HRESULT dungeon::init()
 {
-	SOUNDMANAGER->play("던전배경음악");
-	IMAGEMANAGER->addFrameDImage("골렘던전2", L"타일/골렘던전.png", 520, 260, 20, 10);
-	IMAGEMANAGER->addFrameDImage("호수", L"던전/호수.png", 1488, 191, 8, 1);
-	IMAGEMANAGER->addFrameDImage("입장스크롤", L"던전/입장스크롤.png", 2145, 52, 11, 1);
+	SOUNDMANAGER->play("DungeonBackgroundMusic");
+	IMAGEMANAGER->addFrameDImage("GolemDunGeon", L"Tile/GolemDunGeon.png", 520, 260, 20, 10);
+	IMAGEMANAGER->addFrameDImage("Lake", L"DunGeon/Lake.png", 1488, 191, 8, 1);
+	IMAGEMANAGER->addFrameDImage("Scroll_In", L"DunGeon/Scroll_In.png", 2145, 52, 11, 1);
 
-	IMAGEMANAGER->addDImage("던전배경", L"던전/던전배경.png", WINSIZEX / 2, WINSIZEY / 2);
-	IMAGEMANAGER->addDImage("던전배경2", L"던전/던전배경2.png", 650, 390);
+	IMAGEMANAGER->addDImage("Dungeon_Background", L"DunGeon/Dungeon_Background.png", WINSIZEX / 2, WINSIZEY / 2);
+	IMAGEMANAGER->addDImage("Dungeon_Background2", L"DunGeon/Dungeon_Background2.png", 650, 390);
 
-	IMAGEMANAGER->addDImage("귀환팬던트", L"UI/Bag_Pendant.png", 39, 28);
-	IMAGEMANAGER->addDImage("귀환팬던트베이스", L"UI/Circle_How.png", 50, 50);
-	IMAGEMANAGER->addDImage("L버튼던전", L"UI/L버튼.png", 20, 20);
+	IMAGEMANAGER->addDImage("Bag_Pendant", L"UI/Bag_Pendant.png", 39, 28);
+	IMAGEMANAGER->addDImage("Circle_How", L"UI/Circle_How.png", 50, 50);
+	IMAGEMANAGER->addDImage("L_Button", L"UI/L_Button.png", 20, 20);
 
 
-	IMAGEMANAGER->addDImage("도어위1", L"던전/테스트도어.png", 82, 52);
-	IMAGEMANAGER->addDImage("도어아래1", L"던전/도어아래1.png", 82, 52);
-	IMAGEMANAGER->addDImage("도어왼쪽1", L"던전/도어왼쪽1.png", 52, 82);
-	IMAGEMANAGER->addDImage("도어오른쪽1", L"던전/도어오른쪽1.png", 52, 82);
+	IMAGEMANAGER->addDImage("Door_Up", L"DunGeon/Door_Up.png", 82, 52);
+	IMAGEMANAGER->addDImage("Door_Down", L"DunGeon/Door_Down.png", 82, 52);
+	IMAGEMANAGER->addDImage("Door_Left", L"DunGeon/Door_Left.png", 52, 82);
+	IMAGEMANAGER->addDImage("Door_Right", L"DunGeon/Door_Right.png", 52, 82);
 
-	IMAGEMANAGER->addDImage("미니맵룸", L"미니맵/Minimap_Room.png", 30, 21);
-	IMAGEMANAGER->addDImage("미니맵윌", L"미니맵/Minimap_Will.png", 12, 12);
-	IMAGEMANAGER->addDImage("미니맵호수", L"미니맵/Minimap_Onsen.png", 16, 16);
+	IMAGEMANAGER->addDImage("Minimap_Room", L"MiniMap/Minimap_Room.png", 30, 21);
+	IMAGEMANAGER->addDImage("Minimap_Will", L"MiniMap/Minimap_Will.png", 12, 12);
+	IMAGEMANAGER->addDImage("Minimap_Onsen", L"MiniMap/Minimap_Onsen.png", 16, 16);
 
-	IMAGEMANAGER->addDImage("생명수", L"아이템/Item_LifeFluid.png", 32, 32);
-	IMAGEMANAGER->addDImage("골렘코어", L"아이템/item_golem_core.png", 32, 32);
-	IMAGEMANAGER->addDImage("설계도", L"아이템/item_golem_blue_print.png", 32, 32);
-	IMAGEMANAGER->addDImage("부러진검", L"아이템/book_item_01_BrokenSword.png", 32, 32);
-	IMAGEMANAGER->addDImage("크리스탈", L"아이템/item_crystal_rock.png", 32, 32);
-	IMAGEMANAGER->addDImage("역사서", L"아이템/Item_GolemHistoryI.png", 32, 32);
-	IMAGEMANAGER->addDImage("노트", L"아이템/Item_NajaNotes.png", 32, 32);
-	IMAGEMANAGER->addDImage("금속", L"아이템/item_reinforced_steel_01.png", 32, 32);
-	IMAGEMANAGER->addDImage("빨대", L"아이템/Item_Straw.png", 32, 32);
-	IMAGEMANAGER->addDImage("전선", L"아이템/item_rune_tool.png", 32, 32);
+	IMAGEMANAGER->addDImage("Life_Water", L"ITEM/Item_LifeFluid.png", 32, 32);
+	IMAGEMANAGER->addDImage("Golem_core", L"ITEM/item_golem_core.png", 32, 32);
+	IMAGEMANAGER->addDImage("blueprint", L"ITEM/item_golem_blue_print.png", 32, 32);
+	IMAGEMANAGER->addDImage("Break_Sword", L"ITEM/book_item_01_BrokenSword.png", 32, 32);
+	IMAGEMANAGER->addDImage("Crystal", L"ITEM/item_crystal_rock.png", 32, 32);
+	IMAGEMANAGER->addDImage("History_Book", L"ITEM/Item_GolemHistoryI.png", 32, 32);
+	IMAGEMANAGER->addDImage("Note", L"ITEM/Item_NajaNotes.png", 32, 32);
+	IMAGEMANAGER->addDImage("Steel", L"ITEM/item_reinforced_steel_01.png", 32, 32);
+	IMAGEMANAGER->addDImage("Straw", L"ITEM/Item_Straw.png", 32, 32);
+	IMAGEMANAGER->addDImage("Electronic_Line", L"ITEM/item_rune_tool.png", 32, 32);
 
-	IMAGEMANAGER->addDImage("보스문", L"보스/boss1_door_close_01.png", 100, 58);
-	IMAGEMANAGER->addDImage("보스배경", L"보스/background_boss room.png", 1156, 783);
+	IMAGEMANAGER->addDImage("boss1_door", L"Boss/boss1_door_close_01.png", 100, 58);
+	IMAGEMANAGER->addDImage("background_boss", L"Boss/background_boss room.png", 1156, 783);
 
 
 
@@ -75,7 +75,7 @@ HRESULT dungeon::init()
 	_alpha.rc = RectMake(0, 0, WINSIZEX * 10, WINSIZEY * 10);
 	_alpha.alpha = 1.f;
 	//입장 스크롤 셋팅
-	_scroll.img = IMAGEMANAGER->findDImage("입장스크롤");
+	_scroll.img = IMAGEMANAGER->findDImage("Scroll_In");
 	_scroll.x = 650 / 2 - 100;
 	_scroll.y = 280;
 	_scroll.rc = RectMakeCenter(_scroll.x, _scroll.y, _scroll.img->getFrameWidth(), _scroll.img->getFrameHeight());
@@ -85,16 +85,16 @@ HRESULT dungeon::init()
 	_scroll.alpha = 1.f;
 
 
-	//귀환팬던트 관련
-	_returnPotalBase.img = IMAGEMANAGER->findDImage("귀환팬던트베이스");
+	//Bag_Pendant 관련
+	_returnPotalBase.img = IMAGEMANAGER->findDImage("Circle_How");
 	_returnPotalBase.x = 570;
 	_returnPotalBase.y = 300;
 	_returnPotalBase.rc = RectMakeCenter(_returnPotalBase.x, _returnPotalBase.y, _returnPotalBase.img->getFrameWidth(), _returnPotalBase.img->getFrameHeight());
-	_returnPotal.img = IMAGEMANAGER->findDImage("귀환팬던트");
+	_returnPotal.img = IMAGEMANAGER->findDImage("Bag_Pendant");
 	_returnPotal.x = 570;
 	_returnPotal.y = 300;
 	_returnPotal.rc = RectMakeCenter(_returnPotal.x, _returnPotal.y, _returnPotal.img->getFrameWidth(), _returnPotal.img->getFrameHeight());
-	_returnLbutton.img = IMAGEMANAGER->findDImage("L버튼던전");
+	_returnLbutton.img = IMAGEMANAGER->findDImage("L_Button");
 	_returnLbutton.x = 610;
 	_returnLbutton.y = 320;
 	_returnLbutton.rc = RectMakeCenter(_returnLbutton.x, _returnLbutton.y, _returnLbutton.img->getFrameWidth(), _returnLbutton.img->getFrameHeight());
@@ -123,7 +123,7 @@ HRESULT dungeon::init()
 		for (int x = 0; x < MAPSIZE; x++)
 		{
 			//백그라운드 정보 셋팅
-			_backGround[x + (y * MAPSIZE)].img = IMAGEMANAGER->findDImage("던전배경2");
+			_backGround[x + (y * MAPSIZE)].img = IMAGEMANAGER->findDImage("Dungeon_Background2");
 			_backGround[x + (y * MAPSIZE)].x = _backGround[x + (y * MAPSIZE)].img->getWidth() / 2 + x * _backGround[x + (y * MAPSIZE)].img->getWidth();
 			_backGround[x + (y * MAPSIZE)].y = _backGround[x + (y * MAPSIZE)].img->getHeight() / 2 + y * _backGround[x + (y * MAPSIZE)].img->getHeight();
 			_backGround[x + (y * MAPSIZE)].rc = RectMakeCenter(_backGround[x + (y *MAPSIZE)].x, _backGround[x + (y * MAPSIZE)].y,
@@ -184,7 +184,7 @@ HRESULT dungeon::init()
 			if (!_backGround[i - 1].isBool && !_backGround[i].isBool)
 			{
 				_backGround[i].roadLeft.rc = RectMakeCenter(_backGround[i].rc.left + 50, _backGround[i].y, 50, 30);
-				_backGround[i].roadLeft.img = IMAGEMANAGER->findDImage("도어왼쪽1");
+				_backGround[i].roadLeft.img = IMAGEMANAGER->findDImage("Door_Left");
 			}
 		}
 		//오른쪽 룸 여부에 따라 통로(문) 생성 
@@ -193,7 +193,7 @@ HRESULT dungeon::init()
 			if (!_backGround[i + 1].isBool && !_backGround[i].isBool)
 			{
 				_backGround[i].roadRight.rc = RectMakeCenter(_backGround[i].rc.right - 50, _backGround[i].y, 50, 30);
-				_backGround[i].roadRight.img = IMAGEMANAGER->findDImage("도어오른쪽1");
+				_backGround[i].roadRight.img = IMAGEMANAGER->findDImage("Door_Right");
 			}
 		}
 		//위쪽 룸 여부에 따라 통로(문) 생성
@@ -202,7 +202,7 @@ HRESULT dungeon::init()
 			if (!_backGround[i - MAPSIZE].isBool && !_backGround[i].isBool)
 			{
 				_backGround[i].roadUp.rc = RectMakeCenter(_backGround[i].x, _backGround[i].rc.top + 20, 30, 50);
-				_backGround[i].roadUp.img = IMAGEMANAGER->findDImage("도어위1");
+				_backGround[i].roadUp.img = IMAGEMANAGER->findDImage("Door_Up");
 			}
 		}
 		//아래쪽 룸 여부에 따라 통로(문) 생성
@@ -211,13 +211,13 @@ HRESULT dungeon::init()
 			if (!_backGround[i + MAPSIZE].isBool && !_backGround[i].isBool)
 			{
 				_backGround[i].roadDown.rc = RectMakeCenter(_backGround[i].x, _backGround[i].rc.bottom - 20, 30, 50);
-				_backGround[i].roadDown.img = IMAGEMANAGER->findDImage("도어아래1");
+				_backGround[i].roadDown.img = IMAGEMANAGER->findDImage("Door_Down");
 			}
 		}
 
 	}
 
-	//호수 위치 세팅
+	//Lake 위치 세팅
 	randPool = RND->getFromIntTo(2, 6);
 	load(_backGround[randPool].tiles, "1");
 	_backGround[randPool].isfix = true;
@@ -254,7 +254,7 @@ HRESULT dungeon::init()
 	load(_backGround[45].tiles, "0");
 	_backGround[45].isfix = true;
 
-	//타일 프레임 정보 셋팅
+	//Tile 프레임 정보 셋팅
 	for (int k = 0; k < MAPMAX; ++k)
 	{
 		//참이면 백그라운드 생성 X
@@ -272,7 +272,7 @@ HRESULT dungeon::init()
 
 			}
 		}
-		//타일 위치 셋팅
+		//Tile 위치 셋팅
 		for (int i = 0; i < DUNGEONTILEY; ++i)
 		{
 			for (int j = 0; j < DUNGEONTILEX; ++j)
@@ -281,14 +281,14 @@ HRESULT dungeon::init()
 			}
 		}
 	}
-	//호수 생성	
-	_pool.img = IMAGEMANAGER->findDImage("호수");
+	//Lake 생성	
+	_pool.img = IMAGEMANAGER->findDImage("Lake");
 	_pool.x = _backGround[randPool].x;
 	_pool.y = _backGround[randPool].y;
 	_pool.rc = RectMakeCenter(_pool.x, _pool.y, _pool.img->getFrameWidth(), _pool.img->getFrameHeight());
 	_pool.count = 0;
 	_pool.currentFrameX = _pool.currentFrameY = 0;
-	//호수 충돌체
+	//Lake 충돌체
 	_poolCollision.x = _backGround[randPool].x;
 	_poolCollision.y = _backGround[randPool].y;
 	_poolCollision.radius = 90;
@@ -300,7 +300,7 @@ HRESULT dungeon::init()
 	_vPlayer.objFrameY = _player->getPlayer().currentFrameY;
 	_vPlayer.terrainFrameX = 100;
 	_vZorder.push_back(&_vPlayer);
-	//타일 푸쉬백
+	//Tile 푸쉬백
 	for (int j = 0; j < MAPMAX; ++j)
 	{
 		for (int i = 0; i < DUNGEONTILEX * DUNGEONTILEX; ++i)
@@ -309,7 +309,7 @@ HRESULT dungeon::init()
 			{
 				if (_backGround[j].tiles[i].obj == OBJ_NOTMOVE)
 				{
-					_backGround[j].tiles[i].img = IMAGEMANAGER->findDImage("골렘던전2");
+					_backGround[j].tiles[i].img = IMAGEMANAGER->findDImage("GolemDunGeon");
 
 
 					_vZorder.push_back(&_backGround[j].tiles[i]);
@@ -330,7 +330,7 @@ HRESULT dungeon::init()
 	{
 		for (int j = 0; j < MAPSIZE; ++j)
 		{
-			_miniMap[i * MAPSIZE + j].img = IMAGEMANAGER->findDImage("미니맵룸");
+			_miniMap[i * MAPSIZE + j].img = IMAGEMANAGER->findDImage("Minimap_Room");
 			_miniMap[i * MAPSIZE + j].x = 200 + j * 40;
 			_miniMap[i * MAPSIZE + j].y = 100 + i * 28;
 			_miniMap[i * MAPSIZE + j].rc = RectMakeCenter(_miniMap[i * MAPSIZE + j].x, _miniMap[i * MAPSIZE + j].y, _miniMap[i * MAPSIZE + j].img->getWidth(), _miniMap[i * MAPSIZE + j].img->getHeight());
@@ -338,12 +338,12 @@ HRESULT dungeon::init()
 		}
 	}
 	//미니맵 윌
-	_miniMapWill.img = IMAGEMANAGER->findDImage("미니맵윌");
+	_miniMapWill.img = IMAGEMANAGER->findDImage("Minimap_Will");
 	_miniMapWill.x = _miniMap[45].x;
 	_miniMapWill.y = _miniMap[45].y;
 	_miniMapWill.rc = RectMakeCenter(_miniMapWill.x + CAMERAMANAGER->getScreen().left, _miniMapWill.y + CAMERAMANAGER->getScreen().top, _miniMapWill.img->getWidth(), _miniMapWill.img->getHeight());
-	//미니맵 호수
-	_miniMapPool.img = IMAGEMANAGER->findDImage("미니맵호수");
+	//미니맵 Lake
+	_miniMapPool.img = IMAGEMANAGER->findDImage("Minimap_Onsen");
 	_miniMapPool.x = _miniMap[randPool].x + 10;
 	_miniMapPool.y = _miniMap[randPool].y;
 	_miniMapPool.rc = RectMakeCenter(_miniMapPool.x + CAMERAMANAGER->getScreen().left, _miniMapPool.y + CAMERAMANAGER->getScreen().top, _miniMapPool.img->getWidth(), _miniMapPool.img->getHeight());
@@ -379,7 +379,7 @@ HRESULT dungeon::init()
 
 
 	}*/
-	_bossDoor.img = IMAGEMANAGER->findDImage("보스문");
+	_bossDoor.img = IMAGEMANAGER->findDImage("boss1_door");
 	if (randBoss == 0)
 	{
 		_bossDoor.x = _backGround[randPool - 1].x;
@@ -393,7 +393,7 @@ HRESULT dungeon::init()
 	}
 	_isBossDoor = false;
 
-	_backGroundBoss.img = IMAGEMANAGER->findDImage("보스배경");
+	_backGroundBoss.img = IMAGEMANAGER->findDImage("background_boss");
 	_backGroundBoss.x = 5000;
 	_backGroundBoss.y = 5000;
 	_backGroundBoss.rc = RectMakeCenter(_backGroundBoss.x, _backGroundBoss.y, _backGroundBoss.img->getWidth(), _backGroundBoss.img->getHeight());
@@ -411,9 +411,9 @@ void dungeon::release()
 {
 	_vZorder.clear();
 
-	SOUNDMANAGER->stop("던전배경음악");
-	SOUNDMANAGER->stop("보스배경음악");
-	SOUNDMANAGER->stop("윌발걸음");
+	SOUNDMANAGER->stop("DungeonBackgroundMusic");
+	SOUNDMANAGER->stop("BossBackgroundMusic");
+	SOUNDMANAGER->stop("WillStep");
 }
 bool compareDun(tagTile * a, tagTile * b)
 {
@@ -526,7 +526,7 @@ void dungeon::update()
 				break;
 			}
 		}
-		//호수 프레임
+		//Lake 프레임
 		_pool.count++;
 		if (_pool.count % 10 == 0)
 		{
@@ -645,12 +645,12 @@ void dungeon::render()
 				CAMERAMANAGER->getScreen().top - TILESIZE <= _backGround[j].tiles[i].rc.top && CAMERAMANAGER->getScreen().bottom + TILESIZE >= _backGround[j].tiles[i].rc.bottom)
 			{
 
-				IMAGEMANAGER->findDImage("골렘던전2")->frameRender(_backGround[j].tiles[i].rc.left, _backGround[j].tiles[i].rc.top, _backGround[j].tiles[i].terrainFrameX, _backGround[j].tiles[i].terrainFrameY);
+				IMAGEMANAGER->findDImage("GolemDunGeon")->frameRender(_backGround[j].tiles[i].rc.left, _backGround[j].tiles[i].rc.top, _backGround[j].tiles[i].terrainFrameX, _backGround[j].tiles[i].terrainFrameY);
 
 			}
 		}
 	}
-	//호수 이미지
+	//Lake 이미지
 	_pool.img->frameRender(_pool.rc.left, _pool.rc.top, _pool.currentFrameX, _pool.currentFrameY);
 	//테두리 그리기
 	for (int i = 0; i < MAPMAX; i++)
@@ -725,7 +725,7 @@ void dungeon::render()
 
 	}
 
-	//오브젝트(움직임 가능 포함) 타일 이미지
+	//오브젝트(움직임 가능 포함) Tile 이미지
 	for (int j = 0; j < MAPMAX; j++)
 	{
 		for (int i = 0; i < DUNGEONTILEX * DUNGEONTILEY; ++i)
@@ -740,7 +740,7 @@ void dungeon::render()
 				if (CAMERAMANAGER->getScreen().left - TILESIZE <= _backGround[j].tiles[i].rc.left && CAMERAMANAGER->getScreen().right + TILESIZE >= _backGround[j].tiles[i].rc.right &&
 					CAMERAMANAGER->getScreen().top - TILESIZE <= _backGround[j].tiles[i].rc.top && CAMERAMANAGER->getScreen().bottom + TILESIZE >= _backGround[j].tiles[i].rc.bottom)
 				{
-					IMAGEMANAGER->findDImage("골렘던전2")->frameRender(_backGround[j].tiles[i].rc.left, _backGround[j].tiles[i].rc.top, _backGround[j].tiles[i].objFrameX, _backGround[j].tiles[i].objFrameY);
+					IMAGEMANAGER->findDImage("GolemDunGeon")->frameRender(_backGround[j].tiles[i].rc.left, _backGround[j].tiles[i].rc.top, _backGround[j].tiles[i].objFrameX, _backGround[j].tiles[i].objFrameY);
 				}
 			}
 		}
@@ -805,7 +805,7 @@ void dungeon::render()
 		_miniMapWill.img->render(_miniMapWill.rc.left, _miniMapWill.rc.top);
 		if (_miniMap[randPool].isInvisible) _miniMapPool.img->render(_miniMapPool.rc.left, _miniMapPool.rc.top);
 	}
-	//입장스크롤 이미지
+	//Scroll_In 이미지
 	if (!_scroll.isInvisible)_scroll.img->frameRender(_scroll.x + CAMERAMANAGER->getScreen().left, _scroll.y + CAMERAMANAGER->getScreen().top, _scroll.currentFrameX, _scroll.currentFrameY, _scroll.alpha);
 	_ui->render();
 
@@ -814,7 +814,7 @@ void dungeon::render()
 	D2DMANAGER->FillRectangle(_alpha.rc, D2D1COLOR::Black, _alpha.alpha);
 
 }
-//타일 불러오기
+//Tile 불러오기
 void dungeon::load(tagTile* tile, const char*   strKey)
 {
 	HANDLE file;
@@ -1110,7 +1110,7 @@ void dungeon::playerCollision()
 	{
 
 		_playerHitCount++;
-		if (_playerHitCount == 1) SOUNDMANAGER->play("윌피격");
+		if (_playerHitCount == 1) SOUNDMANAGER->play("WillHitSound");
 		if (_playerHitCount % 5 == 0)
 		{
 
@@ -1125,7 +1125,7 @@ void dungeon::playerCollision()
 			_playerHit = false;
 			_playerHitTime = false;
 			_playerHitCount = 0;
-			SOUNDMANAGER->stop("윌피격");
+			SOUNDMANAGER->stop("WillHitSound");
 		}
 	}
 }
@@ -1148,7 +1148,7 @@ void dungeon::enemyCollision()
 			if (_slime->getSlime()[i].currentHp <= 0)
 			{
 				_huntSlime++;
-				//아이템 개수 랜덤
+				//아이템 Item_Count 랜덤
 				int itemNumRand = RND->getFromIntTo(0, 4);
 				for (int j = 0; j < itemNumRand; ++j)
 				{
@@ -1158,103 +1158,103 @@ void dungeon::enemyCollision()
 					switch (itemKindRand)
 					{
 					case 0:
-						itemGet.img = IMAGEMANAGER->findDImage("생명수");
+						itemGet.img = IMAGEMANAGER->findDImage("Life_Water");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "생명수";
+						itemGet.name = "Life_Water";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					case 1:
-						itemGet.img = IMAGEMANAGER->findDImage("골렘코어");
+						itemGet.img = IMAGEMANAGER->findDImage("Golem_core");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "골렘코어";
+						itemGet.name = "Golem_core";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					case 2:
-						itemGet.img = IMAGEMANAGER->findDImage("설계도");
+						itemGet.img = IMAGEMANAGER->findDImage("blueprint");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "설계도";
+						itemGet.name = "blueprint";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					case 3:
-						itemGet.img = IMAGEMANAGER->findDImage("부러진검");
+						itemGet.img = IMAGEMANAGER->findDImage("Break_Sword");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "부러진검";
+						itemGet.name = "Break_Sword";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					case 4:
-						itemGet.img = IMAGEMANAGER->findDImage("크리스탈");
+						itemGet.img = IMAGEMANAGER->findDImage("Crystal");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "크리스탈";
+						itemGet.name = "Crystal";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					case 5:
-						itemGet.img = IMAGEMANAGER->findDImage("역사서");
+						itemGet.img = IMAGEMANAGER->findDImage("History_Book");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "역사서";
+						itemGet.name = "History_Book";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					case 6:
-						itemGet.img = IMAGEMANAGER->findDImage("노트");
+						itemGet.img = IMAGEMANAGER->findDImage("Note");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "노트";
+						itemGet.name = "Note";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					case 7:
-						itemGet.img = IMAGEMANAGER->findDImage("금속");
+						itemGet.img = IMAGEMANAGER->findDImage("Steel");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "금속";
+						itemGet.name = "Steel";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					case 8:
-						itemGet.img = IMAGEMANAGER->findDImage("빨대");
+						itemGet.img = IMAGEMANAGER->findDImage("Straw");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "빨대";
+						itemGet.name = "Straw";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					case 9:
-						itemGet.img = IMAGEMANAGER->findDImage("전선");
+						itemGet.img = IMAGEMANAGER->findDImage("Electronic_Line");
 						itemGet.rand = RND->getFromIntTo(0, 4);
 						itemGet.count = 0;
 						itemGet.angle = RND->getFromFloatTo(0, PI);
 						itemGet.x = _slime->getSlime()[i].x;
 						itemGet.y = _slime->getSlime()[i].y;
-						itemGet.name = "전선";
+						itemGet.name = "Electronic_Line";
 						itemGet.rc = RectMakeCenter(itemGet.x, itemGet.y, itemGet.img->getWidth(), itemGet.img->getHeight());
 						break;
 					}
@@ -1297,9 +1297,9 @@ void dungeon::enemyCollision()
 		if (_miniBoss->getMiniBoss().currentHp <= 0)
 		{
 			_huntMiniBoss++;
-			EFFECTMANAGER->play("이펙트1", _miniBoss->getMiniBoss().x, _miniBoss->getMiniBoss().y, 1);
-			EFFECTMANAGER->play("이펙트1", _bossDoor.x, _bossDoor.y, 1);
-			SOUNDMANAGER->play("미니보스죽음");
+			EFFECTMANAGER->play("Effect1", _miniBoss->getMiniBoss().x, _miniBoss->getMiniBoss().y, 1);
+			EFFECTMANAGER->play("Effect1", _bossDoor.x, _bossDoor.y, 1);
+			SOUNDMANAGER->play("MiniBossDeathSound");
 			_isBossDoor = true;
 
 			_bossDoor.rc = RectMakeCenter(_bossDoor.x, _bossDoor.y, _bossDoor.img->getWidth(), _bossDoor.img->getHeight());
@@ -1350,8 +1350,8 @@ void dungeon::bossDoor()
 	RECT playerRc = _player->getPlayer().rc;
 	if (IntersectRect(&temp, &playerRc, &_bossDoor.rc))
 	{
-		SOUNDMANAGER->stop("던전배경음악");
-		SOUNDMANAGER->play("보스배경음악");
+		SOUNDMANAGER->stop("DungeonBackgroundMusic");
+		SOUNDMANAGER->play("BossBackgroundMusic");
 		_player->setPlayerX(_backGroundBoss.x);
 		_player->setPlayerY(_backGroundBoss.y + 210);
 		_isBossCamera = true;
@@ -1511,7 +1511,7 @@ void dungeon::dungeonReturn()
 	_returnPotalRect.baseRc = RectMake(_returnPotalRect.x - 5 + CAMERAMANAGER->getScreen().left, _returnPotalRect.y + CAMERAMANAGER->getScreen().top - 15, 60, 10);
 	_returnPotalRect.rc = RectMake(_returnPotalRect.x - 5 + CAMERAMANAGER->getScreen().left, _returnPotalRect.y + CAMERAMANAGER->getScreen().top - 15, _returnPotalRect.width, 10);
 	_returnLbutton.rc = RectMake(_returnLbutton.x + CAMERAMANAGER->getScreen().left, _returnLbutton.y + CAMERAMANAGER->getScreen().top, _returnLbutton.img->getWidth(), _returnLbutton.img->getHeight());
-	//귀환 관련(L버튼 누를시 귀환)
+	//귀환 관련(L_Button 누를시 귀환)
 	if (KEYMANAGER->isStayKeyDown('L'))
 	{
 		_returnPotalRect.width++;

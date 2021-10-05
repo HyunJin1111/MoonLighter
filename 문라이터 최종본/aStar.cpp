@@ -154,7 +154,7 @@ vector<aStarTile*> aStar::addOpenList(aStarTile * currentTile)
 			if (node->getAttribute() == "start") continue;
 			if (node->getAttribute() == "wall") continue;
 
-			//현재 타일 계속 갱신해준다
+			//현재 Tile 계속 갱신해준다
 			node->setParentNode(_currentTile);
 
 			//주변 타일을 검출하면서 체크했는지 유무를 알수있게 임의의 불값 선언
@@ -203,10 +203,10 @@ void aStar::pathFinder(aStarTile * currentTile)
 		POINT center1 = _vOpenList[i]->getParentNode()->getCenter();
 		POINT center2 = _vOpenList[i]->getCenter();
 
-		//타일 중점 사이에 길이가 (타일사이즈 32)보다 크냐? 크면 대각선, 아니면 상하좌우
+		//Tile 중점 사이에 길이가 (타일사이즈 32)보다 크냐? 크면 대각선, 아니면 상하좌우
 		_vOpenList[i]->setCostFromStart((getDistance(center1.x, center1.y, center2.x, center2.y) > ASTARSIZE) ? 14 : 10);
 
-		//총 경로비용 == 갈 수 있는 타일 들 중에서 총 경로 비용들
+		//총 경로비용 == 갈 수 있는 Tile 들 중에서 총 경로 비용들
 		_vOpenList[i]->setTotalCost(_vOpenList[i]->getCostToGoal() + _vOpenList[i]->getCostFromStart());
 
 		//그렇게 뽑아낸 총 경로비용들을 임의의 경로비용과 연산해서,

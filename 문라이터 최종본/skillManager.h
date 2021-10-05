@@ -17,6 +17,11 @@
 class skillManager : public singletonBase<skillManager>
 {
 private:
+	skillManager() {};
+	~skillManager() {};
+
+	friend singletonBase;
+
 	//fireDash* _fireDash; //2¹ø
 	//fireCross* _fireCross; //1¹ø
 	//skill* _skill; // 0¹ø
@@ -31,8 +36,7 @@ private:
 	//int _skillType;
 public:
 
-	skillManager() {};
-	~skillManager() {};
+	
 
 	HRESULT init();
 	void release();

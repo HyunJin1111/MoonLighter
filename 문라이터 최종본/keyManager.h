@@ -9,12 +9,15 @@ using namespace std;
 class keyManager : public singletonBase<keyManager>
 {
 private:
+	keyManager();
+	~keyManager();
+	friend singletonBase;
+
 	bitset<KEYMAX> _keyUp;
 	bitset<KEYMAX> _keyDown;
 
 public:
-	keyManager();
-	~keyManager();
+	
 
 	HRESULT init();
 	void release();

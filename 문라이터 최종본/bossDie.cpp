@@ -8,8 +8,8 @@ bossState * bossDie::inputHandle(boss * boss)
 
 void bossDie::enter(boss * boss)
 {
-	SOUNDMANAGER->play("보스죽음");
-	boss->setBossImg(IMAGEMANAGER->findDImage("보스_die"));
+	SOUNDMANAGER->play("BossDeathSound");
+	boss->setBossImg(IMAGEMANAGER->findDImage("boss_die"));
 	boss->setBossCurrentFrameX(0);
 	boss->setBossCurrentFrameY(0);
 	_bossCount = 0;

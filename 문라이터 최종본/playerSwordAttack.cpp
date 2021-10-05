@@ -5,22 +5,22 @@ playerState * playerSwordAttack::inputHandle(player * player)
 {
 	if (player->getPlayer().currentFrameX >= 4 && !_combo1) 
 	{
-		SOUNDMANAGER->stop("윌공격");
+		SOUNDMANAGER->stop("WillAttack");
 		return new playerIdle();
 	}
 	if (player->getPlayer().currentFrameX >= 8 && _combo1 && !_combo2) 
 	{
-		SOUNDMANAGER->stop("윌공격");
+		SOUNDMANAGER->stop("WillAttack");
 		return new playerIdle();
 	}
 	if (player->getPlayer().currentFrameX >= player->getPlayer().img->getMaxFrameX() && _combo2)
 	{
-		SOUNDMANAGER->stop("윌공격");
+		SOUNDMANAGER->stop("WillAttack");
 		return new playerIdle();
 	}
 	if (player->getPlayer().currentHp <= 0)
 	{
-		SOUNDMANAGER->stop("윌공격");
+		SOUNDMANAGER->stop("WillAttack");
 		return new playerDie();
 	}
 	return nullptr;
@@ -28,34 +28,34 @@ playerState * playerSwordAttack::inputHandle(player * player)
 
 void playerSwordAttack::enter(player * player)
 {
-	SOUNDMANAGER->play("윌공격");
+	SOUNDMANAGER->play("WillAttack");
 	player->setPlayerCurrentFrameX(0);
 	//플레이어 방향별 이미지
 	switch (player->getPlayer().direction)
 	{
 	case PLAYER_DOWN:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("윌단검아래"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("sword_down"));
 		break;
 	case PLAYER_UP:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("윌단검위"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("sword_up"));
 		break;
 	case PLAYER_LEFT:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("윌단검왼쪽"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("sword_left"));
 		break;
 	case PLAYER_RIGHT:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("윌단검오른쪽"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("sword_right"));
 		break;
 	case PLAYER_LEFTUP:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("윌단검위"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("sword_up"));
 		break;
 	case PLAYER_RIGHTUP:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("윌단검위"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("sword_up"));
 		break;
 	case PLAYER_LEFTDOWN:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("윌단검아래"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("sword_down"));
 		break;
 	case PLAYER_RIGHTDOWN:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("윌단검아래"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("sword_down"));
 		break;
 	}
 	_playerCount = 0;
@@ -80,13 +80,13 @@ void playerSwordAttack::update(player * player)
 	}
 	if (player->getPlayer().currentFrameX == 3)
 	{
-		SOUNDMANAGER->stop("윌공격");
-		SOUNDMANAGER->play("윌공격");
+		SOUNDMANAGER->stop("WillAttack");
+		SOUNDMANAGER->play("WillAttack");
 	}
 	if (player->getPlayer().currentFrameX == 6)
 	{
-		SOUNDMANAGER->stop("윌공격");
-		SOUNDMANAGER->play("윌공격");
+		SOUNDMANAGER->stop("WillAttack");
+		SOUNDMANAGER->play("WillAttack");
 	}
 	//플레이어 이미지 프레임
 	_playerCount++;

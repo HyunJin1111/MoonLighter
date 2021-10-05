@@ -5,28 +5,28 @@ playerState * playerWalk::inputHandle(player * player)
 {
 	if (KEYMANAGER->isOnceKeyUp('S') || KEYMANAGER->isOnceKeyUp('W') || KEYMANAGER->isOnceKeyUp('A') || KEYMANAGER->isOnceKeyUp('D'))
 	{
-		SOUNDMANAGER->stop("Àª¹ß°ÉÀ½");
+		SOUNDMANAGER->stop("WillStep");
 		return new playerIdle();
 	}
 	if (SCENEMANAGER->isCurrentScene("dungeon") && KEYMANAGER->isOnceKeyDown('J'))
 	{
-		SOUNDMANAGER->stop("Àª¹ß°ÉÀ½");
+		SOUNDMANAGER->stop("WillStep");
 		return new playerSwordAttack();
 	}
 	if (player->getPlayer().state == PLAYER_SWIM) 
 	{
-		SOUNDMANAGER->stop("Àª¹ß°ÉÀ½");
+		SOUNDMANAGER->stop("WillStep");
 		return new playerSwim();
 	}
 
 	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
 	{
-		SOUNDMANAGER->stop("Àª¹ß°ÉÀ½");
+		SOUNDMANAGER->stop("WillStep");
 		return new playerRoll();
 	}
 	if (player->getPlayer().currentHp <= 0)
 	{
-		SOUNDMANAGER->stop("Àª¹ß°ÉÀ½");
+		SOUNDMANAGER->stop("WillStep");
 		return new playerDie();
 	}
 
@@ -36,35 +36,35 @@ playerState * playerWalk::inputHandle(player * player)
 
 void playerWalk::enter(player * player)
 {	
-	SOUNDMANAGER->play("Àª¹ß°ÉÀ½");
+	SOUNDMANAGER->play("WillStep");
 	player->setPlayerState(PLAYER_WALK);
 	player->setPlayerCurrentFrameX(0);
 	//ÇÃ·¹ÀÌ¾î ¹æÇâº° ÀÌ¹ÌÁö
 	switch (player->getPlayer().direction)
 	{
 	case PLAYER_DOWN:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¾Æ·¡"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_down"));
 		break;
 	case PLAYER_UP:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±âÀ§"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_up"));
 		break;
 	case PLAYER_LEFT:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¿ŞÂÊ"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_left"));
 		break;
 	case PLAYER_RIGHT:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¿À¸¥ÂÊ"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_right"));
 		break;
 	case PLAYER_LEFTUP:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±âÀ§"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_up"));
 		break;
 	case PLAYER_RIGHTUP:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±âÀ§"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_up"));
 		break;
 	case PLAYER_LEFTDOWN:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¾Æ·¡"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_down"));
 		break;
 	case PLAYER_RIGHTDOWN:
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¾Æ·¡"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_down"));
 		break;
 	}
 	_playerCount = 0;
@@ -77,46 +77,46 @@ void playerWalk::update(player * player)
 	if (KEYMANAGER->isStayKeyDown('S'))
 	{
 		player->setPlayerDirection(PLAYER_DOWN);
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¾Æ·¡"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_down"));
 		player->setPlayerY(player->getPlayer().y + player->getPlayer().speed);
 	}
 	if (KEYMANAGER->isStayKeyDown('W')) 
 	{
 		player->setPlayerDirection(PLAYER_UP);
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±âÀ§"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_up"));
 		player->setPlayerY(player->getPlayer().y - player->getPlayer().speed);
 	}
 	if (KEYMANAGER->isStayKeyDown('A'))
 	{
 		player->setPlayerDirection(PLAYER_LEFT);
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¿ŞÂÊ"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_left"));
 		player->setPlayerX(player->getPlayer().x - player->getPlayer().speed);
 	}
 	if (KEYMANAGER->isStayKeyDown('D'))
 	{ 
 		player->setPlayerDirection(PLAYER_RIGHT);
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¿À¸¥ÂÊ"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_right"));
 		player->setPlayerX(player->getPlayer().x + player->getPlayer().speed); 
 	}
 	if (KEYMANAGER->isStayKeyDown('A') && KEYMANAGER->isStayKeyDown('W'))
 	{
 		player->setPlayerDirection(PLAYER_LEFTUP);
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±âÀ§"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_up"));
 	}
 	if (KEYMANAGER->isStayKeyDown('D') && KEYMANAGER->isStayKeyDown('W'))
 	{
 		player->setPlayerDirection(PLAYER_RIGHTUP);
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±âÀ§"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_up"));
 	}
 	if (KEYMANAGER->isStayKeyDown('A') && KEYMANAGER->isStayKeyDown('S'))
 	{
 		player->setPlayerDirection(PLAYER_LEFTDOWN);
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¾Æ·¡"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_down"));
 	}
 	if (KEYMANAGER->isStayKeyDown('D') && KEYMANAGER->isStayKeyDown('S'))
 	{ 
 		player->setPlayerDirection(PLAYER_RIGHTDOWN);
-		player->setPlayerImg(IMAGEMANAGER->findDImage("Àª°È±â¾Æ·¡"));
+		player->setPlayerImg(IMAGEMANAGER->findDImage("will_run_down"));
 	}
 
 	//ÇÃ·¹ÀÌ¾î ÀÌ¹ÌÁö ÇÁ·¹ÀÓ

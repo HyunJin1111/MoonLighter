@@ -11,10 +11,10 @@ itemStraw::~itemStraw()
 
 HRESULT itemStraw::init()
 {
-	IMAGEMANAGER->addDImage("straw", L"¾ÆÀÌÅÛ/Item_Straw.png", 32, 32);
+	IMAGEMANAGER->addDImage("straw", L"ITEM/Item_Straw.png", 32, 32);
 
-	_item.name = "»¡´ë";
-	_item.infomation = "»¡´ë";
+	_item.name = "Straw";
+	_item.infomation = "Straw";
 	_item.itemMax = 0;
 	_item.img = IMAGEMANAGER->findDImage("straw");
 

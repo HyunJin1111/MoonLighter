@@ -11,9 +11,9 @@ itemGolemCore::~itemGolemCore()
 
 HRESULT itemGolemCore::init()
 {
-	IMAGEMANAGER->addDImage("golemCore", L"¾ÆÀÌÅÛ/item_golem_core.png", 32, 32);
+	IMAGEMANAGER->addDImage("golemCore", L"ITEM/item_golem_core.png", 32, 32);
 
-	_item.name = "°ñ·½ÄÚ¾î";
+	_item.name = "Golem_core";
 	_item.infomation = "°ñ·½´øÀü¿¡¼­¸¸ ³ª¿À´Â ÄÚ¾î";
 	_item.itemMax = 0;
 	_item.img = IMAGEMANAGER->findDImage("golemCore");

@@ -5,11 +5,15 @@
 class timeManager : public singletonBase<timeManager>
 {
 private:
+	timeManager();
+	~timeManager();
+
+	friend singletonBase;
+
 	timer* _timer;
 
 public:
-	timeManager();
-	~timeManager();
+	
 
 	HRESULT init();
 	void release();

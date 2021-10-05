@@ -8,6 +8,11 @@ class gameNode;
 class sceneManager : public singletonBase<sceneManager>
 {
 private:
+	sceneManager();
+	~sceneManager();
+
+	friend singletonBase;
+
 	typedef map<string, gameNode*>			 mapSceneList;
 	typedef map<string, gameNode*>::iterator mapSceneIter;
 
@@ -18,8 +23,7 @@ private:
 	string _currentSceneName;
 
 public:
-	sceneManager();
-	~sceneManager();
+	
 
 	HRESULT init();
 	void release();

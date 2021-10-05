@@ -4,12 +4,16 @@
 class printManager : public singletonBase<printManager>
 {
 private:
+	printManager() {};
+	~printManager() {};
+
+	friend singletonBase;
+
 	char _text[128];
 	bool _debug;
 
 public:
-	printManager() {};
-	~printManager() {};
+	
 
 	HRESULT init();
 	void release();

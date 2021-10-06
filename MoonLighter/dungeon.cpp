@@ -104,20 +104,7 @@ HRESULT dungeon::init()
 	_returnPotalRect.rc = RectMake(_returnPotalRect.x, _returnPotalRect.y, _returnPotalRect.width, 10);
 	_returnPotalRect.baseRc = RectMake(_returnPotalRect.x, _returnPotalRect.y, 60, 10);
 
-	//뒷배경 생성여부
-	for (int y = 0; y < MAPSIZE; y++)
-	{
-		for (int x = 0; x < MAPSIZE; x++)
-		{
-			if (x % 2 == 0 || y % 2 == 0)
-				_backGround[x + (y * MAPSIZE)].isBool = false;
-			else
-				_backGround[x + (y * MAPSIZE)].isBool = true;
-		}
-	}
-
-
-	//Binary Tree 알고리즘
+	
 	for (int y = 0; y < MAPSIZE; y++)
 	{
 		for (int x = 0; x < MAPSIZE; x++)
@@ -131,29 +118,27 @@ HRESULT dungeon::init()
 			_backGround[x + (y * MAPSIZE)].indexX = x;
 			_backGround[x + (y *MAPSIZE)].indexY = y;
 			_backGround[x + (y *MAPSIZE)].isfix = false;
-
-
-
+		
+			//방 초기 생성
+			//2로 나누었을때 0이면 방을 생성, 1이면 방을 없앰
 			if (x % 2 == 0 || y % 2 == 0)
-				continue;
+				_backGround[x + (y * MAPSIZE)].isBool = false;
+			else
+				_backGround[x + (y * MAPSIZE)].isBool = true;
+		}
+	}	
+	//Binary Tree 알고리즘
+	for (int y = 0; y < MAPSIZE; y++)
+	{
+		for (int x = 0; x < MAPSIZE; x++)
+		{	
 
-
-			if (x == MAPSIZE - 2 && y == MAPSIZE - 2)
-				continue;
-			if (x == MAPSIZE - 2)
-			{
-				_backGround[x + (y * MAPSIZE) + 1].isBool = true;
-				continue;
-			}
-
-			if (y == MAPSIZE - 2)
-			{
-				_backGround[x + (y *MAPSIZE) - 5].isBool = true;
-				continue;
-			}
-
-
-
+			//방 생성
+			//y축의 마지막 줄은 무조건 생성
+			if (y % 6 == 0) _backGround[x + (y *MAPSIZE)].isBool = false;
+			//x축과 y축을 2로 나누었을때 0이면 생성 아니면 생성하지 않음
+			if (x % 2 == 0 || y % 2 == 0) continue;
+			//0과 1의 값으로 랜덤값을 받아 0이면 아래 방을 없애고, 1이면 오른쪽 방을 없앰
 			if (RND->getFromIntTo(0, 2) == 0)
 			{
 				_backGround[x + (y *MAPSIZE) + 1].isBool = true;
@@ -162,6 +147,7 @@ HRESULT dungeon::init()
 			{
 				_backGround[x + (y *MAPSIZE) + 5].isBool = true;
 			}
+			
 		}
 	}
 	//플레이어 위치 시작점
